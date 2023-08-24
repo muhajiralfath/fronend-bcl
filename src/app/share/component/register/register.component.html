@@ -1,44 +1,25 @@
-<div class="container-xxl">
-  <div class="authentication-wrapper authentication-basic container-p-y">
-    <div class="authentication-inner">
-      <!-- Register Card -->
-      <div class="card">
-        <div class="card-body">
-          <h1 class="app-brand-text demo text-body fw-bolder text-center">Sign up</h1>
-          <!-- /Logo -->
-          <h4 class="mb-2">Adventure starts here 🚀</h4>
-
-          <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
-            </div>
-            <div class="mb-3 form-password-toggle">
-              <label class="form-label" for="password">Password</label>
-              <div class="input-group input-group-merge">
-                <input
-                  type="password"
-                  id="password"
-                  class="form-control"
-                  name="password"
-                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                  aria-describedby="password"
-                />
-              </div>
-            </div>
-
-            <button class="btn btn-primary d-grid w-100">Sign up</button>
-          </form>
-
+<div class="row mt-5">
+  <div class="col-md-4 mx-auto">
+    <div class="card shadow-lg">
+      <div class="card-body m-3">
+        <h3 class="text-center">Registration</h3>
+        <form action="post">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="*******">
+          </div>
+          <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+          </div>
           <p class="text-center">
-            <span class="me-2">Already have an account?</span>
-            <a href="auth-login-basic.html">
-              <span>Sign in</span>
-            </a>
+            Already have an account? <a class="text-decoration-none" href="#">Login</a>
           </p>
-        </div>
+        </form>
       </div>
-      <!-- Register Card -->
     </div>
   </div>
 </div>

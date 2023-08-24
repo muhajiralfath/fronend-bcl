@@ -9,13 +9,17 @@ import {MatChipsModule} from "@angular/material/chips";
 import { LoginComponent } from './share/component/login/login.component';
 import { RegisterComponent } from './share/component/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NavbarComponent } from './share/component/navbar/navbar.component';
+import {SubmissionComponent} from "./pages/submission/submission.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent,
+    SubmissionComponent
   ],
   imports: [
     BrowserModule,
