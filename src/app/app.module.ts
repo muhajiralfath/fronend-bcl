@@ -6,10 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatChipsModule} from "@angular/material/chips";
-import { LoginComponent } from './share/component/login/login.component';
-import { RegisterComponent } from './share/component/register/register.component';
-import { NavbarComponent } from './share/component/navbar/navbar.component';
-import {SubmissionComponent} from "./pages-admin/submission/submission.component";
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { NotfoundComponent } from './share/component/notfound/notfound.component';
 
@@ -18,8 +16,6 @@ import { NotfoundComponent } from './share/component/notfound/notfound.component
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent,
-    SubmissionComponent,
     LandingPageComponent,
     NotfoundComponent
   ],
