@@ -7,6 +7,7 @@ import {BillComponent} from './bill/bill.component';
 import {HomeComponent} from './home/home.component';
 import {SubmissionComponent} from './submission/submission.component';
 import {PagesDebtorAppComponent} from './pages-debtor-app/pages-debtor-app.component';
+import {NavbarDebtorComponent} from "../share/component/navbar-debtor/navbar-debtor.component";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {PagesDebtorAppComponent} from './pages-debtor-app/pages-debtor-app.compo
     BillComponent,
     HomeComponent,
     SubmissionComponent,
-    PagesDebtorAppComponent
+    PagesDebtorAppComponent,
+    NavbarDebtorComponent
   ],
   exports: [],
   imports: [

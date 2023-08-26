@@ -8,18 +8,21 @@ import { UmkmDetailComponent } from './umkm-detail/umkm-detail.component';
 import { PagesAdminAppComponent } from './pages-admin-app/pages-admin-app.component';
 import { SubmissionListComponent } from './submission-list/submission-list.component';
 import {NavbarComponent} from "../share/component/navbar/navbar.component";
-
+import { BillsComponent } from './bills/bills.component';
+// import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DebtorListComponent,
-    DebtorDetailComponent,
+    // DebtorDetailComponent,
+    // ProfilComponent,
     UmkmDetailComponent,
     PagesAdminAppComponent,
     SubmissionListComponent,
-    NavbarComponent
+    NavbarComponent,
+    BillsComponent
   ],
   imports: [
     CommonModule,

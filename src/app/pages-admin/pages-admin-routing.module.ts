@@ -6,15 +6,19 @@ import {DebtorListComponent} from "./debtor-list/debtor-list.component";
 import {DebtorDetailComponent} from "./debtor-detail/debtor-detail.component";
 import {SubmissionListComponent} from "./submission-list/submission-list.component";
 import {UmkmDetailComponent} from "./umkm-detail/umkm-detail.component";
+import {BillsComponent} from "./bills/bills.component";
+import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 const routes: Routes = [
   {
     path: "", component: PagesAdminAppComponent, children: [
       {path: "dashboard", component: DashboardComponent},
       {path: "debtor-list", component: DebtorListComponent},
-      {path: "debtor-detail", component: DebtorDetailComponent},
+      // {path: "debtor-detail", component: DebtorDetailComponent},
+      {path: "debtor-detail", component: ProfilComponent},
       {path: "submission", component: SubmissionListComponent},
-      {path: "umkm-detail", component: UmkmDetailComponent}
+      {path: "umkm-detail", component: UmkmDetailComponent},
+      {path: "bills", component: BillsComponent}
     ]
   }
 ];

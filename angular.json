@@ -66,7 +66,8 @@
               "browserTarget": "business-capital-loan:build:production"
             },
             "development": {
-              "browserTarget": "business-capital-loan:build:development"
+              "browserTarget": "business-capital-loan:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

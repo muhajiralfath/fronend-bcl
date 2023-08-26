@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pages-debtor-app.component.css']
 })
 export class PagesDebtorAppComponent {
-
+ ngOnInit() {}
 }
