@@ -8,7 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatChipsModule} from "@angular/material/chips";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { LandingPageComponent } from './component/landing-page/landing-page.component';
+import { LandingPageComponent } from './share/component/landing-page/landing-page.component';
 import { NotfoundComponent } from './share/component/notfound/notfound.component';
 import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";

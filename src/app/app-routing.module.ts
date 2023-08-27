@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
-import {LandingPageComponent} from "./component/landing-page/landing-page.component";
+import {LandingPageComponent} from "./share/component/landing-page/landing-page.component";
 import {NotfoundComponent} from "./share/component/notfound/notfound.component";
 import {LoginAdminComponent} from "./auth/login-admin/login-admin.component";
 import {DeveloperComponent} from "./share/component/developer/developer.component";
