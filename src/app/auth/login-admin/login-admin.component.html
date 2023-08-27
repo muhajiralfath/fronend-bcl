@@ -3,21 +3,18 @@
     <div class="card shadow-lg">
       <div class="card-body m-3">
         <h3 class="text-center">Login Admin</h3>
-        <form action="post">
+        <form [formGroup]="form" (ngSubmit)="save(form.value)" action="post">
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="text" class="form-control" id="email" placeholder="name@example.com">
+            <input type="text" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="*******">
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="*******">
           </div>
           <div class="text-center mb-3">
-            <button type="submit" class="btn btn-primary btn-sm" routerLink="/debtor">Login</button>
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="form.invalid">Login</button>
           </div>
-          <p class="text-center">
-            don't have account? <a class="text-decoration-none" routerLink="/register">Create an account</a>
-          </p>
         </form>
       </div>
     </div>

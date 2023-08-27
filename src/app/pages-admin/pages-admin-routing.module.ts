@@ -12,6 +12,7 @@ import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 const routes: Routes = [
   {
     path: "", component: PagesAdminAppComponent, children: [
+      {path: "", redirectTo: "dashboard", pathMatch: "full"},
       {path: "dashboard", component: DashboardComponent},
       {path: "debtor-list", component: DebtorListComponent},
       // {path: "debtor-detail", component: DebtorDetailComponent},

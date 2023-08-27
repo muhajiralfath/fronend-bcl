@@ -8,14 +8,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="dashboard">Home</a>
+          <li class="nav-item" >
+            <a class="nav-link" aria-current="page" [class.bold]="isActiveRoute('dashboard')" routerLink="dashboard">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="submission">Submission</a>
+            <a class="nav-link" aria-current="page" [class.bold]="isActiveRoute('submission')" routerLink="submission">Submission</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="bills">Bills</a>
+            <a class="nav-link" aria-current="page" [class.bold]="isActiveRoute('bills')" routerLink="bills">Bills</a>
           </li>
         </ul>
 
