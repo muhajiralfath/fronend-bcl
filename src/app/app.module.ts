@@ -12,9 +12,10 @@ import { LandingPageComponent } from './share/component/landing-page/landing-pag
 import { NotfoundComponent } from './share/component/notfound/notfound.component';
 import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { NavbarLandingComponent } from './share/component/navbar-landing/navbar-landing.component';
 import { DeveloperComponent } from './share/component/developer/developer.component';
+import {AuthInterceptor} from "./auth/interceptor/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -39,8 +40,10 @@ import { DeveloperComponent } from './share/component/developer/developer.compon
     HttpClientModule
   ],
   exports: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   // standalone: true,
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
