@@ -8,6 +8,8 @@ import {HomeComponent} from './home/home.component';
 import {SubmissionComponent} from './submission/submission.component';
 import {PagesDebtorAppComponent} from './pages-debtor-app/pages-debtor-app.component';
 import {NavbarDebtorComponent} from "../share/component/navbar-debtor/navbar-debtor.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -23,7 +25,11 @@ import {NavbarDebtorComponent} from "../share/component/navbar-debtor/navbar-deb
   exports: [],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class PagesModule {
