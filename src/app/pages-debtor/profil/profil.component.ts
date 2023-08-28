@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {DebtorService} from "../../share/service/Debtor/debtor.service";
+import {DebtorService} from "../../share/service/debtor/debtor.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DebtorResponse} from "../../share/model/response/debtor-response.model";
 import {CommonResponse} from "../../share/model/response/common-response.model";

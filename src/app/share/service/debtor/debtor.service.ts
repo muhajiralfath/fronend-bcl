@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {AuthRequest} from "../../model/request/auth-request.model";
 import {Observable} from "rxjs";
 import {DebtorResponse} from "../../model/response/debtor-response.model";
 import {CommonResponse} from "../../model/response/common-response.model";

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DebtorService} from "../../service/Debtor/debtor.service";
+import {DebtorService} from "../../service/debtor/debtor.service";
 import {CommonResponse} from "../../model/response/common-response.model";
 import {DebtorResponse} from "../../model/response/debtor-response.model";
 import {Router} from "@angular/router";

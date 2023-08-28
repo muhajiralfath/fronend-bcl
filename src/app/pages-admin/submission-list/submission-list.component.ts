@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {SubmissionService} from "../../share/service/submission/submission.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {SubmissionResponse} from "../../share/model/response/submission-response";
+import {SubmissionResponseModel} from "../../share/model/response/submission-response.model";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 

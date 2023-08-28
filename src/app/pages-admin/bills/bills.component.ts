@@ -1,11 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {SubmissionResponse} from "../../share/model/response/submission-response";
-import {SubmissionService} from "../../share/service/submission/submission.service";
 import {BillService} from "../../share/service/bill/bill.service";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {DebtorResponse} from "../../share/model/response/debtor-response.model";
 
 @Component({
   selector: 'app-bills',
@@ -13,54 +10,52 @@ import {DebtorResponse} from "../../share/model/response/debtor-response.model";
   styleUrls: ['./bills.component.css']
 })
 export class BillsComponent {
-  displayedColumns: string[] = [
-    'no', 'umkmName', 'debtorName', 'debt', 'interest', 'dueDate', 'isPaid'
-  ];
-  dataSource!: MatTableDataSource<any>;
-  currentPage = 0
-  pageSize = 10
-  totalPages = 0
+  displayedColumns: string[] = ['no', 'umkmName', 'debtorName', 'debt', 'interest', 'dueDate', 'isPaid'];
+  dataSource!: MatTableDataSource<any>
+  length: number = 0
+  pageSize: number = 25
+  pageIndex: number = 0
+  pageSizeOptions: number[] = [25, 50, 100]
+  number: number = 0
 
+  hidePageSize: boolean = false
+  showPageSizeOptions: boolean = true
+  showFirstLastButtons: boolean = true
+  disabled: boolean = false
 
-  constructor(
-    private readonly service: BillService
-  ) {}
+  constructor(private readonly service: BillService) {
+  }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator
+  @ViewChild(MatSort) sort!: MatSort
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.getAll()
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: Event): void {
+    const filterValue: string = (event.target as HTMLInputElement).value
+    this.dataSource.filter = filterValue.trim().toLowerCase()
 
     if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+      this.dataSource.paginator.firstPage()
     }
   }
 
   getAll(): void {
-    this.service.getAll().subscribe({
+    this.service.getAll("0", "1000000").subscribe({
       next: res => {
         this.dataSource = new MatTableDataSource(res.data)
-        this.currentPage = res.paging.page
-        this.pageSize = res.paging.size
-        this.totalPages = res.paging.totalPages
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator
-        console.log(res)
       },
       error: console.log
     })
   }
 
-  paginatorPageChange(event: PageEvent) {
-    this.currentPage = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.getAll();
+  handlePageEvent(e: PageEvent): void {
+    this.length = e.length
+    this.number = e.pageIndex * e.pageSize
+    this.getAll()
   }
-
 }
