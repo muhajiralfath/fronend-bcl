@@ -1,15 +1,342 @@
-<app-navbar-landing></app-navbar-landing>
-<div class="container-lg">
-  <h3>Maksimalkan Potensi Usaha Mikro, Kecil, dan Menengah Anda dengan Pinjaman Kami!</h3>
-  <p>Apakah Anda seorang calon pengusaha atau pemilik bisnis kecil? Saatnya untuk mengembangkan bisnis Anda dengan pinjaman khusus yang dirancang secara eksklusif untuk Usaha Mikro, Kecil, dan Menengah (UMKM). Kami memahami tantangan unik yang Anda hadapi dan siap memberikan dukungan finansial yang Anda butuhkan untuk mendorong pertumbuhan bisnis Anda.</p>
-  <h4>🚀 Mengapa Memilih Pinjaman UMKM Kami?</h4>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Jumlah Pinjaman yang Fleksibel: Apakah Anda memerlukan dana sedikit atau modal yang lebih besar, kami memiliki opsi pinjaman yang sesuai dengan kebutuhan Anda.</li>
-    <li class="list-group-item">Tingkat Bunga Kompetitif: Tingkatkan bisnis Anda tanpa menguras kantong dengan tingkat bunga yang menarik.</li>
-    <li class="list-group-item">Proses Aplikasi Cepat dan Mudah: Tinggalkan proses yang rumit. Aplikasi kami yang efisien memastikan Anda mendapatkan dana yang Anda butuhkan, saat Anda membutuhkannya.</li>
-    <li class="list-group-item">Dukungan untuk Setiap Tahap: Dari tahap awal hingga ekspansi, pinjaman kami mengakomodasi berbagai tahap bisnis, memberikan solusi yang berkembang seiring dengan Anda.</li>
-    <li class="list-group-item">Panduan dari Pakar: Tim ahli keuangan kami siap membantu Anda membuat keputusan finansial terbaik untuk bisnis Anda.</li>
-  </ul>
-  <p>Jangan biarkan keterbatasan keuangan menghambat Anda. Wujudkan impian Anda dan dorong bisnis Anda maju dengan pinjaman UMKM kami. Manfaatkan peluang ini untuk tumbuh, berinovasi, dan meraih kesuksesan!</p>
-  <p>Daftar sekarang untuk informasi lebih lanjut dan mulailah perjalanan Anda menuju keunggulan bisnis.</p>
-</div>
+<!--<app-navbar-landing></app-navbar-landing>-->
+<!--<div class="container-lg">-->
+<!--  <h3>Maksimalkan Potensi Usaha Mikro, Kecil, dan Menengah Anda dengan Pinjaman Kami!</h3>-->
+<!--  <p>Apakah Anda seorang calon pengusaha atau pemilik bisnis kecil? Saatnya untuk mengembangkan bisnis Anda dengan pinjaman khusus yang dirancang secara eksklusif untuk Usaha Mikro, Kecil, dan Menengah (UMKM). Kami memahami tantangan unik yang Anda hadapi dan siap memberikan dukungan finansial yang Anda butuhkan untuk mendorong pertumbuhan bisnis Anda.</p>-->
+<!--  <h4>🚀 Mengapa Memilih Pinjaman UMKM Kami?</h4>-->
+<!--  <ul class="list-group list-group-flush">-->
+<!--    <li class="list-group-item">Jumlah Pinjaman yang Fleksibel: Apakah Anda memerlukan dana sedikit atau modal yang lebih besar, kami memiliki opsi pinjaman yang sesuai dengan kebutuhan Anda.</li>-->
+<!--    <li class="list-group-item">Tingkat Bunga Kompetitif: Tingkatkan bisnis Anda tanpa menguras kantong dengan tingkat bunga yang menarik.</li>-->
+<!--    <li class="list-group-item">Proses Aplikasi Cepat dan Mudah: Tinggalkan proses yang rumit. Aplikasi kami yang efisien memastikan Anda mendapatkan dana yang Anda butuhkan, saat Anda membutuhkannya.</li>-->
+<!--    <li class="list-group-item">Dukungan untuk Setiap Tahap: Dari tahap awal hingga ekspansi, pinjaman kami mengakomodasi berbagai tahap bisnis, memberikan solusi yang berkembang seiring dengan Anda.</li>-->
+<!--    <li class="list-group-item">Panduan dari Pakar: Tim ahli keuangan kami siap membantu Anda membuat keputusan finansial terbaik untuk bisnis Anda.</li>-->
+<!--  </ul>-->
+<!--  <p>Jangan biarkan keterbatasan keuangan menghambat Anda. Wujudkan impian Anda dan dorong bisnis Anda maju dengan pinjaman UMKM kami. Manfaatkan peluang ini untuk tumbuh, berinovasi, dan meraih kesuksesan!</p>-->
+<!--  <p>Daftar sekarang untuk informasi lebih lanjut dan mulailah perjalanan Anda menuju keunggulan bisnis.</p>-->
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <div class="logo">
+      <h1><a href="index.html">Debitur</a></h1>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" href="#about">About</a></li>
+        <li><a class="nav-link scrollto" href="#services">Services</a></li>
+        <li><a class="nav-link scrollto" href="#team">Team</a></li>
+        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto" id="login-nav" href="">Login</a></li>
+
+      </ul>
+<!--      <i class="bi bi-list mobile-nav-toggle"></i>-->
+    </nav><!-- .navbar -->
+
+    <div>
+      <button routerLink="/login" class="login-button" id="login-button">Login</button>
+    </div>
+
+
+  </div>
+</header><!-- End Header --><!--</div>-->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+  <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="carousel-container">
+        <h2 class="animate__animated animate__fadeInDown">Welcome to <span id="debitur">Debitur</span></h2>
+        <p class="animate__animated fanimate__adeInUp">Elevate Your Business with Greater Confidence along with Debitur
+          We are your trusted partner in providing business capital solutions for SMEs that dare to dream big.
+          With our services, you can reach success faster and more efficiently.</p>
+        <a routerLink="/register" class="btn-get-started animate__animated animate__fadeInUp scrollto">Register</a>
+      </div>
+    </div>
+  </div>
+  <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+       viewBox="0 24 150 28 " preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+    </defs>
+    <g class="wave1">
+      <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"/>
+    </g>
+    <g class="wave2">
+      <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"/>
+    </g>
+    <g class="wave3">
+      <use xlink:href="#wave-path" x="50" y="9" fill="#fff"/>
+    </g>
+  </svg>
+</section><!-- End Hero -->
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>About</h2>
+      <p>Who we are</p>
+    </div>
+
+    <div class="row content" data-aos="fade-up">
+      <div class="col-lg-6">
+        <p>
+          "Amidst the dynamic business landscape, a quality SME lending enterprise emerges as a trusted ally for
+          entrepreneurs. With its transparent fixed interest rates, this company offers a dependable financial solution
+          for fostering business expansion.
+        </p>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <p>
+          The stability of fixed interest rates facilitates sound financial planning,
+          ensuring impartiality and consistency in all transactions. This backing not only unlocks avenues of
+          opportunity for SMEs to take substantial leaps but also underscores the potential for tangible growth through
+          a transparent and professional approach
+        </p>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Section -->
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Services</h2>
+      <p>What we do offer</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="icon-box" data-aos="zoom-in-left">
+          <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
+          <h4 class="title"><a href="">Transparent Fixed Interest Rates</a></h4>
+          <p class="description">Our company stands out with its clear-cut and predictable fixed interest rates. No
+            hidden surprises, just straightforward financial solutions for SMEs.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+          <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div>
+          <h4 class="title"><a href="">Tailored Funding</a></h4>
+          <p class="description">We understand that every business is unique. Our lending solutions are customized to
+            fit your specific needs, ensuring the support you receive is perfectly aligned with your goals.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+          <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
+          <h4 class="title"><a href="">Quick and Efficient Processing</a></h4>
+          <p class="description">Time is of the essence in business. With our streamlined processes, you can access the
+            funding you require promptly, enabling you to seize opportunities without delay.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+          <div class="icon"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
+          <h4 class="title"><a href="">Trusted Partner for Growth</a></h4>
+          <p class="description">As your trusted growth partner, we provide more than just funds. We offer strategic
+            insights and support to guide your business toward achieving new heights.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+          <div class="icon"><i class="bi bi-globe" style="color: #d6ff22;"></i></div>
+          <h4 class="title"><a href="">Flexible Repayment Plans</a></h4>
+          <p class="description">We recognize the evolving nature of businesses. Our flexible repayment plans empower
+            you to manage your finances effectively and repay at a pace that suits your cash flow.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
+          <div class="icon"><i class="bi bi-clock" style="color: #4680ff;"></i></div>
+          <h4 class="title"><a href="">Proven Success Stories</a></h4>
+          <p class="description">Our track record speaks for itself. Numerous SMEs have thrived with our support, and
+            their success stories stand as a testament to the impact we make in fostering business growth.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Team</h2>
+      <p>Our Hardworking Team</p>
+    </div>
+
+    <div class="row ">
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch team-member">
+        <div class="member" data-aos="fade-up">
+          <div class="member-img">
+            <img src="assets/images/heru.png" class="img-fluid team-image" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Abdul Wahid K.</h4>
+            <span>Fullstack Developer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch team-member">
+        <div class="member" data-aos="fade-up" data-aos-delay="100">
+          <div class="member-img">
+            <img src="assets/images/azhar.png" class="img-fluid team-image" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Azhar Bazla R.</h4>
+            <span>Solution Analyst</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch team-member">
+        <div class="member" data-aos="fade-up" data-aos-delay="200">
+          <div class="member-img">
+            <img src="assets/images/newjafar.png" class="img-fluid team-image" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Jafar Abdul Ghafar</h4>
+            <span>Fullstack Developer & Project Manager</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch team-member">
+        <div class="member" data-aos="fade-up" data-aos-delay="300">
+          <div class="member-img">
+            <img src="assets/images/al.png" class="img-fluid team-image" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Muhammad Muhajir Al Fath</h4>
+            <span>Fullstack Developer</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Team Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Contact</h2>
+      <p>Contact Us</p>
+    </div>
+
+    <div class="row mt-5">
+
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Jl. H. Dahlan No.75, RT.8/RW.4, Ragunan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta
+              12550</p>
+          </div>
+
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>debitur@business.com</p>
+          </div>
+
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>+62 800900200</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+        <form action="" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center">
+            <a href="mailto:muhajiralfath@email.com"><button type="submit" >Send Message</button></a>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Debitur</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">debitur.com</a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+
