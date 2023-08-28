@@ -9,6 +9,7 @@ import { PagesAdminAppComponent } from './pages-admin-app/pages-admin-app.compon
 import { SubmissionListComponent } from './submission-list/submission-list.component';
 import {NavbarComponent} from "../share/component/navbar/navbar.component";
 import { BillsComponent } from './bills/bills.component';
+import {MatTableModule} from "@angular/material/table";
 // import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
@@ -26,7 +27,8 @@ import { BillsComponent } from './bills/bills.component';
   ],
   imports: [
     CommonModule,
-    PagesAdminRoutingModule
+    PagesAdminRoutingModule,
+    MatTableModule
   ]
 })
 export class PagesAdminModule { }
