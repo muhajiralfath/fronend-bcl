@@ -10,6 +10,10 @@ import {PagesDebtorAppComponent} from './pages-debtor-app/pages-debtor-app.compo
 import {NavbarDebtorComponent} from "../share/component/navbar-debtor/navbar-debtor.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -23,14 +27,17 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarDebtorComponent
   ],
   exports: [],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ]
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule
+    ]
 })
 export class PagesModule {
 }

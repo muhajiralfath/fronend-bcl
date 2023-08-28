@@ -27,7 +27,7 @@ export class LoginComponent {
         let token = res.data.token
         if(token){
           sessionStorage.setItem("token", token);
-          this.router.navigateByUrl("/debtor");
+          this.router.navigateByUrl("/debtor/home");
         }
       },
       error: (err) => {
