@@ -10,6 +10,8 @@ import { SubmissionListComponent } from './submission-list/submission-list.compo
 import {NavbarComponent} from "../share/component/navbar/navbar.component";
 import { BillsComponent } from './bills/bills.component';
 import {MatTableModule} from "@angular/material/table";
+import {AppModule} from "../app.module";
+import {RupiahPipe} from "../share/pipe/rupiah.pipe";
 // import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
@@ -23,7 +25,9 @@ import {MatTableModule} from "@angular/material/table";
     PagesAdminAppComponent,
     SubmissionListComponent,
     NavbarComponent,
-    BillsComponent
+    BillsComponent,
+
+    RupiahPipe
   ],
   imports: [
     CommonModule,

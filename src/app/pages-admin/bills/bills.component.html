@@ -3,45 +3,53 @@
   <div class="card">
     <div class="card-body">
       <h4>Bills page</h4>
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Submission date</th>
-          <th scope="col">Debtor's name</th>
-          <th scope="col">UMKM Name</th>
-          <th scope="col">Tenor</th>
-          <th scope="col">Loan amount</th>
-          <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>
-            <button class="btn btn-sm btn-warning me-2">Accept</button>
-            <button class="btn btn-sm btn-danger">Reject</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>
-            <button class="btn btn-sm btn-warning me-2">Accept</button>
-            <button class="btn btn-sm btn-danger">Reject</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <!--start content-->
+      <div class="container-md py-5">
+        <table mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef><strong>No</strong></th>
+            <td mat-cell *matCellDef="let row; let i=index"> {{i + 1}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="umkmName">
+            <th mat-header-cell *matHeaderCellDef><strong>UMKM Name</strong></th>
+            <td mat-cell *matCellDef="let row"> {{row.umkmName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="debtorName">
+            <th mat-header-cell *matHeaderCellDef><strong>Debtor Name</strong></th>
+            <td mat-cell *matCellDef="let row"> {{row.debtorName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="debt">
+            <th mat-header-cell *matHeaderCellDef><strong>Debt</strong></th>
+            <td mat-cell *matCellDef="let row"> {{row.debt | rupiah}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="interest">
+            <th mat-header-cell *matHeaderCellDef><strong>Interest</strong></th>
+            <td mat-cell *matCellDef="let row"> {{row.interest}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef><strong>Due Date</strong></th>
+            <td mat-cell *matCellDef="let row"> {{row.dueDate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="isPaid">
+            <th mat-header-cell *matHeaderCellDef><strong>Paid</strong></th>
+            <td mat-cell *matCellDef="let row"
+                [ngClass]="{'green-bg': row.isPaid, 'red-bg': !row.isPaid}">
+              {{ row.isPaid ? 'Paid' : 'Unpaid' }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <!--end content-->
     </div>
   </div>
 </div>

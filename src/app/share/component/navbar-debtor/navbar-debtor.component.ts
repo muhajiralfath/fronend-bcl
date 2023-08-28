@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {DebtorService} from "../../service/Debtor/debtor.service";
 import {CommonResponse} from "../../model/response/common-response.model";
 import {DebtorResponse} from "../../model/response/debtor-response.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar-debtor',
@@ -11,7 +12,7 @@ import {DebtorResponse} from "../../model/response/debtor-response.model";
 export class NavbarDebtorComponent {
   email:string = "user@email.com";
   constructor(
-    private readonly debtorService:DebtorService,
+    private readonly debtorService:DebtorService
   ) {}
   ngOnInit(){
     this.loadProfil();
@@ -23,5 +24,9 @@ export class NavbarDebtorComponent {
         this.email = data.email;
       }
     });
+  }
+
+  onLogoutClick(): void {
+    sessionStorage.removeItem("token")
   }
 }

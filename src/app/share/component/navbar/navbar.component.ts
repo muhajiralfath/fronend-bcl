@@ -12,4 +12,8 @@ export class NavbarComponent {
   isActiveRoute(route: string): boolean {
     return this.router.url === '/admin/' + route;
   }
+
+  onLogoutClick(): void {
+    sessionStorage.removeItem("token")
+  }
 }

@@ -18,6 +18,7 @@ import { DeveloperComponent } from './share/component/developer/developer.compon
 import {AuthService} from "./share/service/auth/auth.service";
 import {AuthInterceptor} from "./auth/interceptor/auth.interceptor";
 import {SubmissionService} from "./share/service/submission/submission.service";
+// import {RupiahPipe} from "./share/pipe/rupiah.pipe";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import {SubmissionService} from "./share/service/submission/submission.service";
     NotfoundComponent,
     LoginAdminComponent,
     NavbarLandingComponent,
-    DeveloperComponent
+    DeveloperComponent,
+
+    // RupiahPipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import {SubmissionService} from "./share/service/submission/submission.service";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports: [],
+  exports: [
+    // RupiahPipe
+  ],
   // standalone: true,
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
