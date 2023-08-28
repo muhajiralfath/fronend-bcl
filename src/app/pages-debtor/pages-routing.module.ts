@@ -13,7 +13,7 @@ const routes: Routes = [
     path: "", component: PagesDebtorAppComponent, children: [
       {path: "home", component: HomeComponent},
       {path: "bill", component: BillComponent},
-      {path: "profile", component: ProfilComponent},
+      {path: "profile/:id", component: ProfilComponent},
       {path: "submission", component: SubmissionComponent},
       {path: "submission-form", component: SubmissionFormComponent},
       {path: "umkm-detail", component: UmkmDetailComponent}

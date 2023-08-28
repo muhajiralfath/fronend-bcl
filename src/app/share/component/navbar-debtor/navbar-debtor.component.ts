@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class NavbarDebtorComponent {
   email:string = "user@email.com";
+  debtorId:string = "";
   constructor(
     private readonly debtorService:DebtorService
   ) {}
@@ -22,6 +23,7 @@ export class NavbarDebtorComponent {
       next: (debtorResponse:CommonResponse<DebtorResponse>) => {
         let data: DebtorResponse = debtorResponse.data;
         this.email = data.email;
+        this.debtorId = data.debtorId;
       }
     });
   }

@@ -10,6 +10,7 @@ import {PagesDebtorAppComponent} from './pages-debtor-app/pages-debtor-app.compo
 import {NavbarDebtorComponent} from "../share/component/navbar-debtor/navbar-debtor.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {PagesAdminModule} from "../pages-admin/pages-admin.module";
 
 
 @NgModule({
@@ -23,14 +24,15 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarDebtorComponent
   ],
   exports: [],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
 
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ]
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        PagesAdminModule
+    ]
 })
 export class PagesModule {
 }

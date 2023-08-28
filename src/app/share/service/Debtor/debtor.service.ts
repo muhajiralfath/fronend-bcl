@@ -16,6 +16,9 @@ export class DebtorService {
   getByToken():Observable<CommonResponse<DebtorResponse>>{
     return this.http.get<CommonResponse<DebtorResponse>>("/angular/api/debtors/me");
   }
+  getById(id: string): Observable<CommonResponse<DebtorResponse>> {
+    return this.http.get<CommonResponse<DebtorResponse>>(`/angular/api/debtors/${id}`);
+  }
   update(data:UpdateDebtorRequest):Observable<CommonResponse<DebtorResponse>>{
     return this.http.put<CommonResponse<DebtorResponse>>(`/angular/api/debtors`, data);
   }

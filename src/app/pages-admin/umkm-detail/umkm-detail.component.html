@@ -1,1 +1,46 @@
-<p>umkm-detail works!</p>
+<div class="card shadow bg-body-tertiary mb-5">
+  <div class="card-header">
+    UMKM Detail
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="save(form.value)" method="post">
+      <input type="hidden" class="form-control" formControlName="debtorId">
+      <input type="hidden" class="form-control" formControlName="umkmId">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <label for="umkmName" class="form-label">* Name</label>
+            <input type="text" class="form-control" id="umkmName" formControlName="umkmName">
+          </div>
+          <div class="mb-3">
+            <label for="capital" class="form-label">* Capital</label>
+            <input type="text" class="form-control" id="capital" formControlName="capital">
+          </div>
+          <div class="mb-3">
+            <label for="umkmType" class="form-label">* Type</label>
+            <input type="text" class="form-control" id="umkmType" formControlName="umkmType">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <label for="noSiup" class="form-label">* No SIUP</label>
+            <input type="text" class="form-control" id="noSiup" formControlName="noSiup">
+          </div>
+          <div class="mb-3">
+            <label for="bankAccount" class="form-label">* Bank Account</label>
+            <input type="text" class="form-control" id="bankAccount" formControlName="bankAccount">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">* Address</label>
+            <textarea class="form-control" id="address" formControlName="address" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
