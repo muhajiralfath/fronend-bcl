@@ -1,9 +1,11 @@
-<!--start content-->
 <div class="container-md">
   <div class="card">
     <div class="card-body">
       <h4>Bills page</h4>
-      <!--start content-->
+      <mat-form-field class="form">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="by table field.." #input>
+      </mat-form-field>
       <div class="container-md py-5">
         <table mat-table [dataSource]="dataSource">
 
@@ -49,8 +51,6 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
       </div>
-      <!--end content-->
     </div>
   </div>
 </div>
-<!--end content-->

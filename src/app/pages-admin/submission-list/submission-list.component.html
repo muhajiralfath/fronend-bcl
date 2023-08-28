@@ -1,8 +1,11 @@
-<!--start content-->
 <div class="container-md">
   <div class="card">
     <div class="card-body">
       <h4>Submission page</h4>
+      <mat-form-field class="form">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="by table field.." #input>
+      </mat-form-field>
       <div class="container-md py-5">
         <table mat-table [dataSource]="dataSource">
 
@@ -56,4 +59,3 @@
     </div>
   </div>
 </div>
-<!--end content-->

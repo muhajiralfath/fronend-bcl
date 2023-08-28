@@ -12,6 +12,7 @@ import { BillsComponent } from './bills/bills.component';
 import {MatTableModule} from "@angular/material/table";
 import {AppModule} from "../app.module";
 import {RupiahPipe} from "../share/pipe/rupiah.pipe";
+import {MatInputModule} from "@angular/material/input";
 // import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
@@ -32,7 +33,8 @@ import {RupiahPipe} from "../share/pipe/rupiah.pipe";
   imports: [
     CommonModule,
     PagesAdminRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule
   ]
 })
 export class PagesAdminModule { }
