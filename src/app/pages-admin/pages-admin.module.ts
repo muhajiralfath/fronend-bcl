@@ -13,6 +13,8 @@ import {MatTableModule} from "@angular/material/table";
 import {AppModule} from "../app.module";
 import {RupiahPipe} from "../share/pipe/rupiah.pipe";
 import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 // import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
@@ -34,7 +36,9 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     PagesAdminRoutingModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class PagesAdminModule { }
