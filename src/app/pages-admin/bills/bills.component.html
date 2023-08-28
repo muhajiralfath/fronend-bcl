@@ -1,12 +1,11 @@
-<!--<div class="container-md">-->
-<!--  <div class="card">-->
-<!--    <div class="card-body">-->
-<!--      <h4>Bills page</h4>-->
+<div class="container-md">
+  <div class="card">
+    <div class="card-body">
+      <h4>Bills page</h4>
       <mat-form-field appearance="fill">
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search.." #input>
       </mat-form-field>
-
-<!--      <div class="container-md py-5">-->
+      <div class="container-md py-5">
         <div class="mat-elevation-z8">
           <table mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="no">
@@ -53,7 +52,6 @@
             <tr class="mat-row" *matNoDataRow>
               <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
             </tr>
-
           </table>
           <mat-paginator (page)="handlePageEvent($event)"
                          [length]="length"
@@ -65,8 +63,8 @@
                          [hidePageSize]="hidePageSize"
                          aria-label="Select page">
           </mat-paginator>
-<!--        </div>-->
+        </div>
       </div>
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+    </div>
+  </div>
+</div>
