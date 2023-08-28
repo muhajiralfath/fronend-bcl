@@ -15,6 +15,7 @@ import {RupiahPipe} from "../share/pipe/rupiah.pipe";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import {ReactiveFormsModule} from "@angular/forms";
 // import {ProfilComponent} from "../pages-debtor/profil/profil.component";
 
 
@@ -32,13 +33,17 @@ import {MatSortModule} from "@angular/material/sort";
 
     RupiahPipe
   ],
+  exports: [
+    UmkmDetailComponent
+  ],
   imports: [
     CommonModule,
     PagesAdminRoutingModule,
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesAdminModule { }

@@ -14,6 +14,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
+import {PagesAdminModule} from "../pages-admin/pages-admin.module";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatTableModule} from "@angular/material/table";
         MatInputModule,
         MatPaginatorModule,
         MatSortModule,
-        MatTableModule
+        MatTableModule,
+        PagesAdminModule
     ]
 })
 export class PagesModule {

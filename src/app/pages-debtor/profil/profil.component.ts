@@ -36,10 +36,18 @@ export class ProfilComponent {
     private readonly route:ActivatedRoute
   ) {}
   ngOnInit(){
-    this.loadProfil();
+    this.route.params.subscribe({
+      next: (param) => {
+        if(param["id"]){
+          this.loadProfil(param["id"]);
+        }
+      }
+    });
+
+
   }
-  loadProfil(){
-    this.debtorService.getByToken().subscribe({
+  loadProfil(id:string){
+    this.debtorService.getById(id).subscribe({
       next: (debtorResponse:CommonResponse<DebtorResponse>) => {
         let data: DebtorResponse = debtorResponse.data;
         this.inputData(data);
