@@ -3,9 +3,10 @@ import {NewUmkmRequest} from "../../model/request/new-umkm-request.model";
 import {CommonResponse} from "../../model/response/common-response.model";
 import {UmkmResponse} from "../../model/response/umkm-response.model";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {DebtorResponse} from "../../model/response/debtor-response.model";
 import {UpdateUmkmRequest} from "../../model/request/update-umkm-request.model";
+import {PagingResponse} from "../../model/response/paging-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,17 @@ export class UmkmService {
   getById(id:string):Observable<CommonResponse<UmkmResponse>>{
     return this.http.get<CommonResponse<UmkmResponse>>(`/angular/api/umkm/${id}`);
   }
-  getAll(){
-
+  getByDebtorId(id:string):Observable<CommonResponse<UmkmResponse>>{
+    return this.http.get<CommonResponse<UmkmResponse>>(`/angular/api/umkm/debtorId/${id}`);
   }
+  getAll(keyword?:string, page?:string, size?:string):Observable<CommonResponse<UmkmResponse[]>>{
+    let params:HttpParams = new HttpParams()
+      .set("keyword", keyword || "")
+      .set("page", page || "")
+      .set("size", size || "");
+    return this.http.get<CommonResponse<UmkmResponse[]>>("/angular/api/umkm", {params});
+  }
+
   update(data:UpdateUmkmRequest): Observable<CommonResponse<UmkmResponse>>{
     return this.http.put<CommonResponse<UmkmResponse>>(`/angular/api/umkm`, data);
 

@@ -3,7 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {BillService} from "../../share/service/bill/bill.service";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {BillResponseModel} from "../../share/model/response/bill-response.model";
+import {BillResponse} from "../../share/model/response/bill.response.model";
 import {CommonResponse} from "../../share/model/response/common-response.model";
 
 @Component({
@@ -46,7 +46,7 @@ export class BillsComponent {
 
   getAll(): void {
     this.service.getAll("0", "1000000").subscribe({
-      next: (res: CommonResponse<BillResponseModel[]>): void => {
+      next: (res: CommonResponse<BillResponse[]>): void => {
         this.dataSource = new MatTableDataSource(res.data)
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator

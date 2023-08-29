@@ -6,6 +6,7 @@ import {CommonResponse} from "../../share/model/response/common-response.model";
 import {UmkmResponse} from "../../share/model/response/umkm-response.model";
 import {NewUmkmRequest} from "../../share/model/request/new-umkm-request.model";
 import Swal from "sweetalert2";
+import {UpdateUmkmRequest} from "../../share/model/request/update-umkm-request.model";
 
 @Component({
   selector: 'app-umkm-detail',
@@ -34,50 +35,84 @@ export class UmkmDetailComponent {
           this.form.patchValue({
             debtorId: param["id"]
           })
+
+          this.loadUmkm(param["id"]);
         }
       }
     })
-    this.loadUmkm(this.form.get("umkmId")?.value);
   }
-  loadUmkm(umkmId:any){
-    this.umkmService.getById(umkmId).subscribe({
+  loadUmkm(debtorId:any){
+    this.umkmService.getByDebtorId(debtorId).subscribe({
       next: (umkmResponse:CommonResponse<UmkmResponse>) => {
         let data:UmkmResponse = umkmResponse.data;
+        console.log(data);
         this.inputData(data);
       }
     })
   }
   save(request:any){
-    let newUmkmRequest:NewUmkmRequest = {
-      debtorId:request.debtorId,
-      umkmName:request.umkmName,
-      noSiup:request.noSiup,
-      address:request.address,
-      capital:request.capital,
-      umkmType:request.umkmType,
-      bankAccount:request.bankAccount
-    }
-    this.umkmService.create(newUmkmRequest).subscribe({
-      next: (response:CommonResponse<UmkmResponse>) => {
-        let data:UmkmResponse = response.data;
-        this.inputData(data);
-        Swal.fire(
-          "Create UMKM",
-          "success",
-          "success"
-        );
-      },error: (error) => {
-        Swal.fire(
-          'Create UMKM',
-          error.toString(),
-          'error'
-        );
+    if(this.form.get("umkmId")?.value){
+      //Update
+      let updateUmkmRequest:UpdateUmkmRequest = {
+        umkmId:request.umkmId,
+        umkmName:request.umkmName,
+        noSiup:request.noSiup,
+        address:request.address,
+        capital:request.capital,
+        umkmType:request.umkmType,
+        bankAccount:request.bankAccount
       }
-    });
+
+      this.umkmService.update(updateUmkmRequest).subscribe({
+        next: (response:CommonResponse<UmkmResponse>) => {
+          let data:UmkmResponse = response.data;
+          this.inputData(data);
+          Swal.fire(
+            "Update UMKM",
+            "success",
+            "success"
+          );
+        },error: (error) => {
+          Swal.fire(
+            'Update UMKM',
+            error.toString(),
+            'error'
+          );
+        }
+      });
+    }else{
+      //Create
+      let newUmkmRequest:NewUmkmRequest = {
+        debtorId:request.debtorId,
+        umkmName:request.umkmName,
+        noSiup:request.noSiup,
+        address:request.address,
+        capital:request.capital,
+        umkmType:request.umkmType,
+        bankAccount:request.bankAccount
+      }
+      this.umkmService.create(newUmkmRequest).subscribe({
+        next: (response:CommonResponse<UmkmResponse>) => {
+          let data:UmkmResponse = response.data;
+          this.inputData(data);
+          Swal.fire(
+            "Create UMKM",
+            "success",
+            "success"
+          );
+        },error: (error) => {
+          Swal.fire(
+            'Create UMKM',
+            error.toString(),
+            'error'
+          );
+        }
+      });
+    }
   }
 
   private inputData(data:UmkmResponse){
-    this.form.setValue({
+    this.form.patchValue({
       umkmId: data.umkmId,
       umkmName: data.umkmName,
       noSiup: data.noSiup,
