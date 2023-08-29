@@ -1,4 +1,4 @@
-export interface SubmissionResponseModel {
+export interface SubmissionResponse {
   id: string
   debtorId: string,
   umkmId: string,

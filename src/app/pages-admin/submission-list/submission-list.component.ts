@@ -4,7 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {CommonResponse} from "../../share/model/response/common-response.model";
-import {SubmissionResponseModel} from "../../share/model/response/submission-response.model";
+import {SubmissionResponse} from "../../share/model/response/submission-response.model";
 
 @Component({
   selector: 'app-submission-list',
@@ -50,7 +50,7 @@ export class SubmissionListComponent {
 
   getAll(): void {
     this.service.getAll(undefined, undefined, "0", "1000000").subscribe({
-      next: (res: CommonResponse<SubmissionResponseModel[]>): void => {
+      next: (res: CommonResponse<SubmissionResponse[]>): void => {
         this.dataSource = new MatTableDataSource(res.data)
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator

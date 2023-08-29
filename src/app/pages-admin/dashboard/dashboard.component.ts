@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import {CommonResponse} from "../../share/model/response/common-response.model";
-import {SubmissionResponseModel} from "../../share/model/response/submission-response.model";
+import {SubmissionResponse} from "../../share/model/response/submission-response.model";
 import {MatTableDataSource} from "@angular/material/table";
 import {SubmissionService} from "../../share/service/submission/submission.service";
 import {BillService} from "../../share/service/bill/bill.service";
-import {BillResponseModel} from "../../share/model/response/bill-response.model";
+import {BillResponse} from "../../share/model/response/bill.response.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +28,7 @@ export class DashboardComponent {
 
   getAllSubmission(): void {
     this.submissionService.getAll(undefined, undefined, "0", "1000000").subscribe({
-      next: (res: CommonResponse<SubmissionResponseModel[]>): void => {
+      next: (res: CommonResponse<SubmissionResponse[]>): void => {
         this.submissionDataSource = new MatTableDataSource(res.data)
       },
       error: console.log
@@ -37,7 +37,7 @@ export class DashboardComponent {
 
   getAllBill(): void {
     this.billService.getAll("0", "1000000").subscribe({
-      next: (res: CommonResponse<BillResponseModel[]>): void => {
+      next: (res: CommonResponse<BillResponse[]>): void => {
         this.billDataSource = new MatTableDataSource(res.data)
       },
       error: console.log
