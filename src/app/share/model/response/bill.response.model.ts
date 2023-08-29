@@ -1,4 +1,4 @@
-export interface BillResponseModel {
+export interface BillResponse {
   id : string
   provisionId : string
   umkmName : string
