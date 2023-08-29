@@ -28,8 +28,8 @@ export class AuthInterceptor implements HttpInterceptor {
           this.router.navigateByUrl("/")
 
         } else if (error.status === 404){
-          Swal.fire("Page Not Found")
-          errMsg = "Page Not Found"
+          Swal.fire("Page or Data Not Found")
+          errMsg = "Page or Data Not Found"
           this.router.navigateByUrl("**")
         }else {
         }

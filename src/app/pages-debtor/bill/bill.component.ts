@@ -24,7 +24,7 @@ export class BillComponent {
   }
 
   ngOnInit(){
-    this,this.getAll();
+    this.getAll();
   }
 
   applyFilter(event: Event) {

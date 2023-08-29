@@ -7,6 +7,7 @@ import {UmkmResponse} from "../../share/model/response/umkm-response.model";
 import {NewUmkmRequest} from "../../share/model/request/new-umkm-request.model";
 import Swal from "sweetalert2";
 import {UpdateUmkmRequest} from "../../share/model/request/update-umkm-request.model";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-umkm-detail',
@@ -26,7 +27,9 @@ export class UmkmDetailComponent {
   });
   constructor(
     private readonly umkmService:UmkmService,
-    private readonly route:ActivatedRoute
+    private readonly route:ActivatedRoute,
+    private readonly router:Router,
+    private readonly location:Location
   ) {}
   ngOnInit(){
     this.route.params.subscribe({
@@ -47,8 +50,20 @@ export class UmkmDetailComponent {
         let data:UmkmResponse = umkmResponse.data;
         console.log(data);
         this.inputData(data);
+      },
+      error: (error: any) => {
+        // Swal.fire("Page Not Found", error);
+        // errMsg = "Page Not Found"
+        this.route.params.subscribe({
+          next: (param) => {
+            if(param["id"]){
+              let debtorId:string = param["id"];
+              this.router.navigateByUrl(`/debtor/profile/${debtorId}`);
+            }
+          }
+        });
       }
-    })
+    });
   }
   save(request:any){
     if(this.form.get("umkmId")?.value){
