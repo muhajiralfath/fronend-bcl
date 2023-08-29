@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {SubmissionResponseModel} from "../../model/response/submission-response.model";
+import {SubmissionResponse} from "../../model/response/submission-response.model";
 import {CommonResponse} from "../../model/response/common-response.model";
 import {AcceptRejectRequest} from "../../model/request/accept-reject-request.model";
 
@@ -17,14 +17,14 @@ export class SubmissionService {
 
   getAll(minLoanAmount?: string, maxLoanAmount?: string,
          page?: string, size?: string
-  ): Observable<CommonResponse<SubmissionResponseModel[]>> {
+  ): Observable<CommonResponse<SubmissionResponse[]>> {
     const params: HttpParams = new HttpParams()
       .set('minLoanAmount', minLoanAmount || '')
       .set('maxLoanAmount', maxLoanAmount || '')
       .set('page', page || '')
       .set('size', size || '');
 
-    return this.http.get<CommonResponse<SubmissionResponseModel[]>>('/angular/api/submissions', {params});
+    return this.http.get<CommonResponse<SubmissionResponse[]>>('/angular/api/submissions', {params});
   }
 
   accept(submissionId: string): Observable<any> {

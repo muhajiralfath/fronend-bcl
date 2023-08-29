@@ -25,19 +25,19 @@
           <table>
             <tr>
               <td>Total Submissions</td>
-              <td>: amount</td>
+              <td>: {{ getTotalSubmissions() }}</td>
             </tr>
             <tr>
               <td>Pending Submissions</td>
-              <td>: amount</td>
+              <td>: {{ getPendingSubmissions() }}</td>
             </tr>
             <tr>
               <td>Approved Submissions</td>
-              <td>: amount</td>
+              <td>: {{ getApprovedSubmissions() }}</td>
             </tr>
             <tr>
-              <td>Reject Submissions</td>
-              <td>: amount</td>
+              <td>Rejected Submissions</td>
+              <td>: {{ getRejectedSubmissions() }}</td>
             </tr>
           </table>
         </div>
@@ -49,15 +49,15 @@
           <table>
             <tr>
               <td>Total Bills</td>
-              <td>: amount</td>
+              <td>: {{ getTotalBills() }}</td>
             </tr>
             <tr>
               <td>Paid Bills</td>
-              <td>: amount</td>
+              <td>: {{ getPaidBills() }}</td>
             </tr>
             <tr>
               <td>Unpaid Bills</td>
-              <td>: amount</td>
+              <td>: {{ getUnpaidBills() }}</td>
             </tr>
           </table>
         </div>
