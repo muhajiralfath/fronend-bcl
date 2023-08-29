@@ -43,13 +43,30 @@
               <td mat-cell *matCellDef="let row"> {{row.monthlyDebt}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="action">
-              <th mat-header-cell *matHeaderCellDef><strong>Action</strong></th>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef><strong>Status</strong></th>
               <td mat-cell *matCellDef="let row">
-                <button class="btn btn-sm btn-warning me-2">Accept</button>
-                <button class="btn btn-sm btn-danger">Reject</button>
+                <ng-container *ngIf="row.isApprove === true || row.isApprove === false; else buttonGroup">
+                  {{ row.isApprove ? 'Accepted' : 'Rejected' }}
+                </ng-container>
+                <ng-template #buttonGroup>
+                  <button class="btn btn-sm btn-warning me-2"
+                          *ngIf="row.status !== 'Accepted' && row.status !== 'Rejected'"
+                          (click)="acceptButtonClicked(row)">
+                    {{ row.status === 'Accepted' ? 'Accepted' : 'Accept' }}
+                  </button>
+                  <button class="btn btn-sm btn-danger"
+                          *ngIf="row.status !== 'Accepted' && row.status !== 'Rejected'"
+                          (click)="rejectButtonClicked(row)">
+                    {{ row.status === 'Rejected' ? 'Rejected' : 'Reject' }}
+                  </button>
+                  <span *ngIf="row.status === 'Accepted' || row.status === 'Rejected'">
+                    {{ row.status }}
+                  </span>
+                </ng-template>
               </td>
             </ng-container>
+
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

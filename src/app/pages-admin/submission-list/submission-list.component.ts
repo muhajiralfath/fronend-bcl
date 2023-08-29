@@ -13,7 +13,7 @@ import {SubmissionResponseModel} from "../../share/model/response/submission-res
 })
 export class SubmissionListComponent {
   displayedColumns: string[] = [
-    'no', 'umkmName', 'date', 'loanAmount', 'tenor', 'debt', 'monthlyDebt', 'action'
+    'no', 'umkmName', 'date', 'loanAmount', 'tenor', 'debt', 'monthlyDebt', 'status'
   ];
   dataSource!: MatTableDataSource<any>
   length: number = 0
@@ -32,8 +32,8 @@ export class SubmissionListComponent {
   ) {
   }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator
+  @ViewChild(MatSort) sort!: MatSort
 
   ngOnInit(): void {
     this.getAll()
@@ -58,6 +58,25 @@ export class SubmissionListComponent {
       error: console.log
     })
   }
+
+  acceptButtonClicked(row: any): void {
+    this.service.accept(row.id).subscribe({
+      next: (): void => {
+        row.status = 'Accepted'
+      },
+      error: console.log
+    })
+  }
+
+  rejectButtonClicked(row: any): void {
+    this.service.reject(row.id).subscribe({
+      next: (): void => {
+        row.status = 'Rejected'
+      },
+      error: console.log
+    })
+  }
+
 
   handlePageEvent(e: PageEvent): void {
     this.length = e.length
