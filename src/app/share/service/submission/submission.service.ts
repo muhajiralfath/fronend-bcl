@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {SubmissionResponse} from "../../model/response/submission-response.model";
 import {CommonResponse} from "../../model/response/common-response.model";
 import {AcceptRejectRequest} from "../../model/request/accept-reject-request.model";
+import {NewSubmissionReq} from "../../model/request/new-submission-request.model";
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +45,9 @@ export class SubmissionService {
     console.log(body)
     return this.http.put('/angular/api/submissions', body);
   }
+
+  addSubmission(newSubmissionReq: NewSubmissionReq): Observable<any> {
+    return this.http.post('/angular/api/submissions', newSubmissionReq);
+  }
+
 }
