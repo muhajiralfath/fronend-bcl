@@ -33,9 +33,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 
     RupiahPipe
   ],
-  exports: [
-    UmkmDetailComponent
-  ],
+    exports: [
+        UmkmDetailComponent,
+        RupiahPipe
+    ],
   imports: [
     CommonModule,
     PagesAdminRoutingModule,
