@@ -17,8 +17,10 @@ import {Router} from "@angular/router";
 })
 export class SubmissionFormComponent {
   umkmId: string = ""
+  umkmType!: string
   debtorId: string = ""
   token: string = ""
+
 
   constructor(private readonly submissionService: SubmissionService,
               private readonly umkmService: UmkmService,
@@ -40,21 +42,26 @@ export class SubmissionFormComponent {
     agreeToTerms: new FormControl(false, [Validators.requiredTrue])
   })
 
-  savaSubmission(): void {
+  saveSubmission(): any {
     let newSubmission: NewSubmissionReq = {
       loanAmount: this.form.get("loanAmount")?.value,
       tenor: this.form.get("tenor")?.value,
       umkmId: this.umkmId
     }
-    this.submissionService.addSubmission(newSubmission).subscribe({
-      next: (): void => {
-        Swal.fire("Add Submission Successfull")
-      },
-      error: () => {
-        this.form.reset()
-        Swal.fire("Please Input correct submission or add Umkm First")
-      }
-    })
+    if (this.umkmType === "mikro" && newSubmission.loanAmount < 1000000 || newSubmission.loanAmount > 3000000) return Swal.fire("Your Umkm type is micro! input amount 1.000.000 - 3.000.000")
+    if (this.umkmType === "kecil" && newSubmission.loanAmount < 5000000 || newSubmission.loanAmount > 20000000) return Swal.fire("Your Umkm type is small! input amount 5.000.000 - 20.000.000")
+    if (this.umkmType === "menengah" && newSubmission.loanAmount < 10000000 || newSubmission.loanAmount > 50000000) return Swal.fire("Your Umkm type is middle! input amount 10.000.000 - 50.000.000")
+    else {
+      return this.submissionService.addSubmission(newSubmission).subscribe({
+        next: (): void => {
+          Swal.fire("Add Submission Successfull")
+        },
+        error: () => {
+          this.form.reset()
+          Swal.fire("Please Input correct submission or add Umkm First")
+        }
+      })
+    }
   }
 
   getDebtorId(): void {
@@ -72,10 +79,11 @@ export class SubmissionFormComponent {
       next: (umkmResponse: CommonResponse<UmkmResponse>) => {
         let data: UmkmResponse = umkmResponse.data
         this.umkmId = data.umkmId
+        this.umkmType = data.umkmType
       },
       error: (error) => {
-          Swal.fire("Add Umkm First")
-          this.router.navigateByUrl("/debtor/submission-form")
+        Swal.fire("Add Umkm First")
+        this.router.navigateByUrl("/debtor/submission-form")
       }
     })
   }

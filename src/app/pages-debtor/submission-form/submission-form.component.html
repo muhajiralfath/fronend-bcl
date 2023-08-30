@@ -2,7 +2,7 @@
   <div class="card text-center ">
     <div class="card-header">Form Submission</div>
     <div class="card-body p-5">
-      <form class="d-flex flex-column" action="post" [formGroup]="form" (ngSubmit)="savaSubmission()">
+      <form class="d-flex flex-column" action="post" [formGroup]="form" (ngSubmit)="saveSubmission()">
         <!-- Name input -->
         <div class="form-outline mb-4 " id="input-amount">
           <input type="text" id="loanAmount" class="form-control" placeholder="Ex. 5.000.000 | 10.000.000" formControlName="loanAmount"/>
