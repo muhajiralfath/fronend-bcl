@@ -31,6 +31,9 @@ export class SubmissionComponent {
     this.submissionService.getSubmissionByDebtorId(this.debtorId).subscribe({
       next: (result) => {
         this.submissionList = result.data
+      },
+      error: (e) => {
+        console.log(e.e())
       }
     })
   }
@@ -40,11 +43,10 @@ export class SubmissionComponent {
       next: (debtorResponse: CommonResponse<DebtorResponse>) => {
         let data: DebtorResponse = debtorResponse.data;
         this.debtorId = data.debtorId
-        console.log(this.debtorId)
         this.getSubmissionByDebtorId()
       },
       error: () => {
-        Swal.fire("Don't have submission , add firt")
+        Swal.fire("Don't have submission , add first")
         this.router.navigateByUrl("/debtor/submissions")
       }
     })

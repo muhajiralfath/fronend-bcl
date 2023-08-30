@@ -1,10 +1,10 @@
 <div class="py-4 px-5">
   <div class="card w-100 mt-2-2">
     <div class="card-body">
-      <h3 class="card-title">Total Tagihan : Rp. 5000.000</h3>
+      <h3 class="card-title">Total Debt : <span class="text-success">{{totalDebt | rupiah}}</span></h3>
       <hr>
-      <h5>Jafar Abdul Ghofar</h5>
-      <h6>Sisa tagihan 6 Bulan</h6>
+      <h5>{{debtorName ? debtorName : " - "}}</h5>
+      <h6> Rest of the bills : <span class="text-danger">{{mothDebth}} month</span></h6>
     </div>
   </div>
   <br>
