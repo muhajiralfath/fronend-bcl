@@ -1,5 +1,5 @@
 export interface SubmissionResponse {
-  id: string
+  id: string,
   debtorId: string,
   umkmId: string,
   umkmName: string,
@@ -7,6 +7,20 @@ export interface SubmissionResponse {
   loanAmount: number,
   tenor: number,
   debt: number,
-  monthlyDebt: number,
+  montlyDebt: number,
   isApprove: boolean
 }
+
+
+// private String id;
+// private String debtorId;
+// private String umkmId;
+// private String umkmName;
+// @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+// private LocalDateTime date;
+// private Long loanAmount;
+// private Integer tenor;
+// private Long debt;
+// private Long monthlyDebt;
+// private Boolean isApprove;
+
