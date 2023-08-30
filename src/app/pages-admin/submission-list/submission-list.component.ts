@@ -17,12 +17,11 @@ export class SubmissionListComponent {
   ];
   dataSource!: MatTableDataSource<any>
   length: number = 0
-  pageSize: number = 25
+  pageSize: number = 15
   pageIndex: number = 0
   pageSizeOptions: number[] = [25, 50, 100]
   number: number = 0
 
-  hidePageSize: boolean = false
   showPageSizeOptions: boolean = true
   showFirstLastButtons: boolean = true
   disabled: boolean = false
