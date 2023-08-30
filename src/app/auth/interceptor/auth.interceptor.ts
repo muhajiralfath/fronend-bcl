@@ -17,7 +17,8 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = sessionStorage.getItem("token");
     return next.handle(request.clone({
       setHeaders: {
-        authorization: `Bearer ${token}`
+        authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': 'true'
       }
     })).pipe(
       catchError((error:HttpErrorResponse) => {

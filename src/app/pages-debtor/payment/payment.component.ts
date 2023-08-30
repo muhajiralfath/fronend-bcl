@@ -48,7 +48,12 @@ export class PaymentComponent {
   createPayment() {
     this.service.create(this.paymentRequest).subscribe({
         next: res => {
-          window.location.href = res.data.snapUrl;
+          const newTab = window.open(res.data.snapUrl, '_blank');
+          if (newTab) {
+            newTab.focus();
+          } else {
+            console.error("Failed to open new tab");
+          }
         }
     })
   }
