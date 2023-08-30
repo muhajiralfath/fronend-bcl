@@ -26,12 +26,6 @@ export class AuthInterceptor implements HttpInterceptor {
           Swal.fire("Unauthorized")
           errMsg = "Unauthorized"
           this.router.navigateByUrl("/")
-
-        } else if (error.status === 404){
-          Swal.fire("Page or Data Not Found")
-          errMsg = "Page or Data Not Found"
-          this.router.navigateByUrl("**")
-        }else {
         }
         return throwError(()=> errMsg);
       })

@@ -50,4 +50,7 @@ export class SubmissionService {
     return this.http.post('/angular/api/submissions', newSubmissionReq);
   }
 
+  getSubmissionByDebtorId(debtorId: string) : Observable<CommonResponse<SubmissionResponse[]>>{
+    return this.http.get<CommonResponse<SubmissionResponse[]>>(`/angular/api/submissions/debtor/${debtorId}`);
+  }
 }
