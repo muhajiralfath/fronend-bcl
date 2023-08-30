@@ -1,0 +1,29 @@
+<div class="container-sm">
+  <div class="p-sm-5">
+
+    <div class="card">
+      <div class="card-header">Payment Details</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-3 text-secondary">Bill ID</div>
+          <div class="col">{{paymentRequest.billId}}</div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-secondary">Due Date</div>
+          <div class="col">{{dueDate | date}}</div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-secondary">Amount</div>
+          <div class="col"><strong>{{amount | currency:'Rp':'symbol':'1.0'}}</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="col mt-3 text-center">
+            <button class="btn btn-primary" (click)="createPayment()">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

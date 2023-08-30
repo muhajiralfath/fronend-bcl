@@ -1,6 +1,7 @@
 export interface BillResponse {
   id : string
   provisionId : string
+  umkmId: string
   umkmName : string
   debtorName : string
   debt : number

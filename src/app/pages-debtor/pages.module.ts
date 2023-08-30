@@ -15,6 +15,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
 import {PagesAdminModule} from "../pages-admin/pages-admin.module";
+import { PaymentComponent } from './payment/payment.component';
+import {PaymentService} from "../share/service/payment/payment.service";
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import {PagesAdminModule} from "../pages-admin/pages-admin.module";
     HomeComponent,
     SubmissionComponent,
     PagesDebtorAppComponent,
-    NavbarDebtorComponent
+    NavbarDebtorComponent,
+    PaymentComponent
   ],
   exports: [],
     imports: [
@@ -39,7 +42,10 @@ import {PagesAdminModule} from "../pages-admin/pages-admin.module";
         MatSortModule,
         MatTableModule,
         PagesAdminModule
-    ]
+    ],
+  providers: [
+    PaymentService
+  ]
 })
 export class PagesModule {
 }
