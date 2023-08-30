@@ -8,7 +8,7 @@
       <h5 class="card-title">Umkm Name :  {{submission.umkmName}}</h5>
       <p class="card-text">Loan Amount :  {{submission.loanAmount | rupiah}}</p>
       <p class="card-text">Tenor : {{submission.tenor}} month</p>
-      <p class="card-text">Total Debt : {{submission.debt}}</p>
+      <p class="card-text">Total Debt : {{submission.debt | rupiah}}</p>
       <p class="card-text">Monthly Debt :  {{submission.monthlyDebt | rupiah}}</p>
       <a href="#"
          [ngClass]="{

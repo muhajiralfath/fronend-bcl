@@ -5,6 +5,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {SubmissionService} from "../../share/service/submission/submission.service";
 import {BillService} from "../../share/service/bill/bill.service";
 import {BillResponse} from "../../share/model/response/bill.response.model";
+import {DebtorService} from "../../share/service/debtor/debtor.service";
+import {UmkmService} from "../../share/service/umkm/umkm.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,18 +14,38 @@ import {BillResponse} from "../../share/model/response/bill.response.model";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  countDebtor:number = 0;
+  countUmkm:number = 0;
   submissionDataSource!: MatTableDataSource<any>
   billDataSource!: MatTableDataSource<any>
   constructor(
     private readonly submissionService: SubmissionService,
-    private readonly billService: BillService
+    private readonly billService: BillService,
+    private readonly debtorService:DebtorService,
+    private readonly umkmService:UmkmService
   ) {
   }
 
   ngOnInit(): void {
     this.getAllSubmission()
     this.getAllBill()
+    this.getAllDebtor()
+    this.getAllUmkm()
+  }
 
+  getAllDebtor(){
+    this.debtorService.getAll().subscribe({
+      next: (result) => {
+        this.countDebtor = result.data.length;
+      }
+    });
+  }
+  getAllUmkm(){
+    this.umkmService.getAll().subscribe({
+      next: (result) => {
+        this.countUmkm = result.data.length
+      }
+    });
   }
 
   getAllSubmission(): void {

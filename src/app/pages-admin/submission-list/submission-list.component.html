@@ -10,7 +10,7 @@
           <table mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="no">
               <th mat-header-cell *matHeaderCellDef><strong>No</strong></th>
-              <td mat-cell *matCellDef="let row; let i=index"> {{i + number + 1}} </td>
+              <td mat-cell *matCellDef="let row; let i=index" class="text-center"> {{i + number + 1}} </td>
             </ng-container>
 
             <ng-container matColumnDef="umkmName">
@@ -20,32 +20,32 @@
 
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef><strong>Date</strong></th>
-              <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.date}} </td>
             </ng-container>
 
             <ng-container matColumnDef="loanAmount">
               <th mat-header-cell *matHeaderCellDef><strong>Loan Amount</strong></th>
-              <td mat-cell *matCellDef="let row"> {{row.loanAmount | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-end"> {{row.loanAmount | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="tenor">
               <th mat-header-cell *matHeaderCellDef><strong>Tenor</strong></th>
-              <td mat-cell *matCellDef="let row"> {{row.tenor}} </td>
+              <td mat-cell *matCellDef="let row" class="text-end"> {{row.tenor}} </td>
             </ng-container>
 
             <ng-container matColumnDef="debt">
               <th mat-header-cell *matHeaderCellDef><strong>Debt</strong></th>
-              <td mat-cell *matCellDef="let row"> {{row.debt | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-end"> {{row.debt | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="monthlyDebt">
               <th mat-header-cell *matHeaderCellDef><strong>Monthly Debt</strong></th>
-              <td mat-cell *matCellDef="let row"> {{row.monthlyDebt}} </td>
+              <td mat-cell *matCellDef="let row" class="text-end"> {{row.monthlyDebt | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="status">
               <th mat-header-cell *matHeaderCellDef><strong>Status</strong></th>
-              <td mat-cell *matCellDef="let row">
+              <td mat-cell *matCellDef="let row" class="text-center">
                 <ng-container *ngIf="row.isApprove === true || row.isApprove === false; else buttonGroup">
                   {{ row.isApprove ? 'Accepted' : 'Rejected' }}
                 </ng-container>
