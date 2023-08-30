@@ -19,6 +19,10 @@ export class BillService {
   getById(id:string):Observable<CommonResponse<BillResponse>>{
     return this.http.get<CommonResponse<BillResponse>>(`/angular/api/bills/${id}`);
   }
+  getByDebtorId(id:string):Observable<CommonResponse<BillResponse[]>>{
+    return this.http.get<CommonResponse<BillResponse[]>>(`/angular/api/bills/debtor/${id}`);
+  }
+
   getAll(page?: string, size?: string): Observable<CommonResponse<BillResponse[]>> {
     const params: HttpParams = new HttpParams()
       .set('page', page || '')
