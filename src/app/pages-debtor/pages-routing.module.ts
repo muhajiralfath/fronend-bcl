@@ -7,6 +7,7 @@ import {SubmissionComponent} from "./submission/submission.component";
 import {SubmissionFormComponent} from "./submission-form/submission-form.component";
 import {PagesDebtorAppComponent} from "./pages-debtor-app/pages-debtor-app.component";
 import {UmkmDetailComponent} from "../pages-admin/umkm-detail/umkm-detail.component";
+import {PaymentComponent} from "./payment/payment.component";
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       {path: "profile/:id", component: ProfilComponent},
       {path: "submission", component: SubmissionComponent},
       {path: "submission-form", component: SubmissionFormComponent},
-      {path: "umkm-detail", component: UmkmDetailComponent}
+      {path: "umkm-detail", component: UmkmDetailComponent},
+      {path: "payment", component: PaymentComponent}
     ]
   }
 ];
