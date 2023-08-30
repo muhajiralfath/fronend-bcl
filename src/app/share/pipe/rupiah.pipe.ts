@@ -5,11 +5,13 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class RupiahPipe implements PipeTransform {
   transform(value: number): string {
-    const formatter = new Intl.NumberFormat('id-ID', {
+    const numberFormat = new Intl.NumberFormat('id-ID', {
       style: 'currency',
-      currency: 'IDR'
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
     });
 
-    return formatter.format(value);
+    return numberFormat.format(value).replace('IDR', 'Rp');
   }
 }
