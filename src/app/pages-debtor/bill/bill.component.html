@@ -34,7 +34,7 @@
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef><strong>Action</strong></th>
               <td mat-cell *matCellDef="let row">
-                <button class="btn btn-sm btn-warning me-2" (click)="onPay(row.id)">Pay</button>
+                <button class="btn btn-sm btn-warning me-2" (click)="onPay(row.id)" *ngIf="!row.isPaid">Pay</button>
               </td>
             </ng-container>
 
