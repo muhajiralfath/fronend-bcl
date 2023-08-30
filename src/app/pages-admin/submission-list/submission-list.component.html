@@ -3,7 +3,7 @@
     <div class="card-body">
       <h4>Submission page</h4>
       <mat-form-field appearance="fill">
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search.." #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
       </mat-form-field>
       <div class="container-md py-5">
         <div class="mat-elevation-z8">
@@ -25,22 +25,22 @@
 
             <ng-container matColumnDef="loanAmount">
               <th mat-header-cell *matHeaderCellDef><strong>Loan Amount</strong></th>
-              <td mat-cell *matCellDef="let row" class="text-end"> {{row.loanAmount | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.loanAmount | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="tenor">
               <th mat-header-cell *matHeaderCellDef><strong>Tenor</strong></th>
-              <td mat-cell *matCellDef="let row" class="text-end"> {{row.tenor}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.tenor}} </td>
             </ng-container>
 
             <ng-container matColumnDef="debt">
               <th mat-header-cell *matHeaderCellDef><strong>Debt</strong></th>
-              <td mat-cell *matCellDef="let row" class="text-end"> {{row.debt | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.debt | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="monthlyDebt">
               <th mat-header-cell *matHeaderCellDef><strong>Monthly Debt</strong></th>
-              <td mat-cell *matCellDef="let row" class="text-end"> {{row.monthlyDebt | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.monthlyDebt | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="status">

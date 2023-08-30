@@ -8,60 +8,99 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="mb-3">
-            <label for="nik" class="form-label">* NIK</label>
+            <label for="nik" class="form-label">NIK<span>*</span></label>
             <input type="text" class="form-control" id="nik" formControlName="nik">
+             <div *ngIf="form.get('nik')!.invalid && form.get('nik')!.touched" class="text-danger small">
+              <ng-container *ngIf="form.get('nik')!.errors?.['required']">NIK is required.</ng-container>
+              <ng-container *ngIf="form.get('nik')!.errors?.['pattern']">NIK must be number and 16 characters long.</ng-container>
+            </div>
           </div>
           <div class="mb-3">
-            <label for="name" class="form-label">* Name</label>
+            <label for="name" class="form-label">Name<span>*</span></label>
             <input type="text" class="form-control" id="name" formControlName="name">
+            <div *ngIf="form.get('name')!.invalid && form.get('name')!.touched" class="text-danger small">
+              Name is required.
+            </div>
           </div>
           <div class="mb-3">
-            <label for="birthPlace" class="form-label">* Birth Place</label>
+            <label for="birthPlace" class="form-label">Birth Place<span>*</span></label>
             <input type="text" class="form-control" id="birthPlace" formControlName="birthPlace">
+            <div *ngIf="form.get('birthPlace')!.invalid && form.get('birthPlace')!.touched" class="text-danger small">
+              Birth Place is required.
+            </div>
           </div>
           <div class="mb-3">
             <div class="">
-              <label class="form-label">* Gender</label>
+              <label class="form-label">Gender<span>*</span></label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="male" value="male">
+              <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="male"
+                     value="male">
               <label class="form-check-label" for="male">Male</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="female" value="female">
+              <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="female"
+                     value="female">
               <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div *ngIf="form.get('gender')!.invalid && form.get('gender')!.touched" class="text-danger small">
+              Gender is required.
             </div>
           </div>
           <div class="mb-3">
-            <label for="job" class="form-label">* Job</label>
+            <label for="job" class="form-label">Job<span>*</span></label>
             <input type="text" class="form-control" id="job" formControlName="job">
+            <div *ngIf="form.get('job')!.invalid && form.get('job')!.touched" class="text-danger small">
+              Job is required.
+            </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="mb-3">
-            <label for="npwp" class="form-label">* NPWP</label>
+            <label for="npwp" class="form-label">NPWP<span>*</span></label>
             <input type="text" class="form-control" id="npwp" formControlName="npwp">
+            <div *ngIf="form.get('npwp')!.invalid && form.get('npwp')!.touched" class="text-danger small">
+              <ng-container *ngIf="form.get('npwp')!.errors?.['required']">NPWP is required.</ng-container>
+              <ng-container *ngIf="form.get('npwp')!.errors?.['pattern']">NPWP must be 15/16 characters long.</ng-container>
+            </div>
           </div>
 
           <div class="mb-3">
-            <label for="email" class="form-label">* Email</label>
+            <label for="email" class="form-label">Email<span>*</span></label>
             <input type="text" class="form-control" id="email" formControlName="email">
+            <div *ngIf="form.get('email')!.invalid && form.get('email')!.touched" class="text-danger small">
+              <ng-container *ngIf="form.get('email')!.errors?.['required']">Email is required.</ng-container>
+              <ng-container *ngIf="form.get('email')!.errors?.['email']">Invalid email format.</ng-container>
+            </div>
           </div>
           <div class="mb-3">
-            <label for="handphone" class="form-label">* Handphone</label>
+            <label for="handphone" class="form-label">Number Phone<span>*</span></label>
             <input type="text" class="form-control" id="handphone" formControlName="handphone">
+             <div *ngIf="form.get('handphone')!.invalid && form.get('handphone')!.touched" class="text-danger small">
+              <ng-container *ngIf="form.get('handphone')!.errors?.['required']">Number phone is required.</ng-container>
+              <ng-container *ngIf="form.get('handphone')!.errors?.['pattern']">Invalid number phone format.</ng-container>
+            </div>
           </div>
           <div class="mb-3">
-            <label for="birthDate" class="form-label">* Birth Date</label>
+            <label for="birthDate" class="form-label">Birth Date<span>*</span></label>
             <input type="date" class="form-control" id="birthDate" formControlName="birthDate">
+            <div *ngIf="form.get('birthDate')!.invalid && form.get('birthDate')!.touched" class="text-danger small">
+              Birth Date is required.
+            </div>
           </div>
           <div class="mb-3">
-            <label for="status" class="form-label">* Status</label>
+            <label for="status" class="form-label">Status<span>*</span></label>
             <input type="text" class="form-control" id="status" formControlName="status">
+            <div *ngIf="form.get('status')!.invalid && form.get('status')!.touched" class="text-danger small">
+              Status is required.
+            </div>
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label">* Address</label>
+            <label for="address" class="form-label">Address<span>*</span></label>
             <textarea class="form-control" id="address" formControlName="address" rows="3"></textarea>
+            <div *ngIf="form.get('address')!.invalid && form.get('address')!.touched" class="text-danger small">
+              Address is required.
+            </div>
           </div>
         </div>
       </div>

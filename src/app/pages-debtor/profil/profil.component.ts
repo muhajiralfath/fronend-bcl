@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DebtorService} from "../../share/service/debtor/debtor.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {DebtorResponse} from "../../share/model/response/debtor-response.model";
 import {CommonResponse} from "../../share/model/response/common-response.model";
 import {UpdateDebtorRequest} from "../../share/model/request/update-debtor-request.model";
@@ -13,42 +13,42 @@ import Swal from "sweetalert2";
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
+  form: FormGroup;
 
-  form:FormGroup = new FormGroup({
-    debtorId: new FormControl("", Validators.required),
-    nik: new FormControl("", Validators.required),
-    name: new FormControl("", Validators.required),
-    // ga ada
-    email: new FormControl("", Validators.required),
-
-    birthPlace: new FormControl("", Validators.required),
-    gender: new FormControl("", Validators.required),
-    job: new FormControl("", Validators.required),
-    npwp: new FormControl("", Validators.required),
-    handphone: new FormControl("", Validators.required),
-    birthDate: new FormControl("", Validators.required),
-    status: new FormControl("", Validators.required),
-    address: new FormControl("", Validators.required)
-  });
   constructor(
-    private readonly debtorService:DebtorService,
-    private readonly router:Router,
-    private readonly route:ActivatedRoute
-  ) {}
-  ngOnInit(){
+    private readonly debtorService: DebtorService,
+    private readonly route: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      debtorId: [''],
+      nik: ['', [Validators.required, Validators.pattern("^[0-9]{16}$")]],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      birthPlace: ['', Validators.required],
+      gender: ['', Validators.required],
+      job: ['', Validators.required],
+      npwp: ['', [Validators.required, Validators.pattern("^[0-9]{15,16}$")]],
+      handphone: ['', [Validators.required, Validators.pattern("^(?:\\+62|0)[2-9][0-9]{7,11}$")]],
+      birthDate: ['', Validators.required],
+      status: ['', Validators.required],
+      address: ['', Validators.required]
+    });
+  }
+
+  ngOnInit() {
     this.route.params.subscribe({
       next: (param) => {
-        if(param["id"]){
+        if (param["id"]) {
           this.loadProfil(param["id"]);
         }
       }
     });
-
-
   }
-  loadProfil(id:string){
+
+  loadProfil(id: string) {
     this.debtorService.getById(id).subscribe({
-      next: (debtorResponse:CommonResponse<DebtorResponse>) => {
+      next: (debtorResponse: CommonResponse<DebtorResponse>) => {
         let data: DebtorResponse = debtorResponse.data;
         this.inputData(data);
       }
@@ -72,23 +72,23 @@ export class ProfilComponent {
     });
   }
 
-  save(request:UpdateDebtorRequest){
-    let updateDebtorRequest:UpdateDebtorRequest = {
-      debtorId:request.debtorId,
-      nik:request.nik,
-      npwp:request.npwp,
-      name:request.name,
-      handphone:request.handphone,
-      birthPlace:request.birthPlace,
-      birthDate:request.birthDate,
-      gender:request.gender,
-      status:request.status,
-      address:request.address,
-      job:request.job
+  save(request: UpdateDebtorRequest) {
+    let updateDebtorRequest: UpdateDebtorRequest = {
+      debtorId: request.debtorId,
+      nik: request.nik,
+      npwp: request.npwp,
+      name: request.name,
+      handphone: request.handphone,
+      birthPlace: request.birthPlace,
+      birthDate: request.birthDate,
+      gender: request.gender,
+      status: request.status,
+      address: request.address,
+      job: request.job
     }
 
     this.debtorService.update(updateDebtorRequest).subscribe({
-      next: (debtorResponse:CommonResponse<DebtorResponse>) => {
+      next: (debtorResponse: CommonResponse<DebtorResponse>) => {
         let data: DebtorResponse = debtorResponse.data;
         this.inputData(data);
         Swal.fire(
