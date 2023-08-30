@@ -13,10 +13,14 @@ export class NavbarDebtorComponent {
   email:string = "user@email.com";
   debtorId:string = "";
   constructor(
-    private readonly debtorService:DebtorService
+    private readonly debtorService:DebtorService,
+    private readonly router: Router
   ) {}
   ngOnInit(){
     this.loadProfil();
+  }
+  isActiveRoute(route: string): boolean {
+    return this.router.url === '/debtor/' + route;
   }
   loadProfil(){
     this.debtorService.getByToken().subscribe({

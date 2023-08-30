@@ -51,6 +51,7 @@ export class SubmissionListComponent {
   getAll(): void {
     this.service.getAll(undefined, undefined, "0", "1000000").subscribe({
       next: (res: CommonResponse<SubmissionResponse[]>): void => {
+        console.log(res);
         this.dataSource = new MatTableDataSource(res.data)
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator

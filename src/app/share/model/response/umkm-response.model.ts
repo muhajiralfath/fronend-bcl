@@ -3,7 +3,7 @@ export interface UmkmResponse{
   noSiup:string,
   umkmName:string,
   address:string,
-  capital:number
+  capital:number,
   umkmType:string,
   bankAccount:string
 }
