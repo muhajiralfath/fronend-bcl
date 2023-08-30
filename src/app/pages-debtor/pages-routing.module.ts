@@ -18,7 +18,7 @@ const routes: Routes = [
       {path: "submission", component: SubmissionComponent},
       {path: "submission-form", component: SubmissionFormComponent},
       {path: "umkm-detail", component: UmkmDetailComponent},
-      {path: "payment", component: PaymentComponent}
+      {path: "payment/:id", component: PaymentComponent}
     ]
   }
 ];

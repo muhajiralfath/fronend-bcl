@@ -6,7 +6,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-3 text-secondary">Bill ID</div>
-          <div class="col">{{billId}}</div>
+          <div class="col">{{paymentRequest.billId}}</div>
         </div>
         <div class="row">
           <div class="col-3 text-secondary">Due Date</div>
@@ -14,7 +14,7 @@
         </div>
         <div class="row">
           <div class="col-3 text-secondary">Amount</div>
-          <div class="col">{{amount}}</div>
+          <div class="col"><strong>{{amount | currency:'Rp':'symbol':'1.0'}}</strong></div>
         </div>
 
         <div class="row">

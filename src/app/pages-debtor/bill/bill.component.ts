@@ -6,6 +6,7 @@ import {BillService} from "../../share/service/bill/bill.service";
 import {DebtorService} from "../../share/service/debtor/debtor.service";
 import {CommonResponse} from "../../share/model/response/common-response.model";
 import {DebtorResponse} from "../../share/model/response/debtor-response.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bill',
@@ -26,7 +27,8 @@ export class BillComponent {
 
   constructor(
     private service: BillService,
-    private debtorService:DebtorService
+    private debtorService:DebtorService,
+    private router: Router
   ) {
   }
 
@@ -72,7 +74,7 @@ export class BillComponent {
         // this.totalPages = res.paging.totalPages
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator
-        console.log(res)
+        // console.log(res)
       }
       // ,error: console.log
     })
@@ -82,5 +84,10 @@ export class BillComponent {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
     this.getAll();
+  }
+
+  onPay(id: string) {
+    this.router.navigateByUrl(`/debtor/payment/${id}`);
+    // console.log(id)
   }
 }
