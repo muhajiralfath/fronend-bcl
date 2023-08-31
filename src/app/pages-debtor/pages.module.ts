@@ -17,6 +17,7 @@ import {MatTableModule} from "@angular/material/table";
 import {PagesAdminModule} from "../pages-admin/pages-admin.module";
 import { PaymentComponent } from './payment/payment.component';
 import {PaymentService} from "../share/service/payment/payment.service";
+import {PhotoService} from "../share/service/photo/photo.service";
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import {PaymentService} from "../share/service/payment/payment.service";
         PagesAdminModule
     ],
   providers: [
-    PaymentService
+    PaymentService, PhotoService
   ]
 })
 export class PagesModule {

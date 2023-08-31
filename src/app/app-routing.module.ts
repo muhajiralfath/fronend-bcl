@@ -5,14 +5,12 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {LandingPageComponent} from "./share/component/landing-page/landing-page.component";
 import {NotfoundComponent} from "./share/component/notfound/notfound.component";
 import {LoginAdminComponent} from "./auth/login-admin/login-admin.component";
-import {DeveloperComponent} from "./share/component/developer/developer.component";
 
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
   {path: "login", component: LoginComponent},
   {path: "login-admin", component: LoginAdminComponent},
   {path: "register", component: RegisterComponent},
-  {path: "projects", component: DeveloperComponent},
   {path: "404", component: NotfoundComponent},
   {path: "admin", loadChildren: () => import("./pages-admin/pages-admin.module").then(m => m.PagesAdminModule)},
   {path: "debtor", loadChildren: () => import("./pages-debtor/pages.module").then(m => m.PagesModule)},
