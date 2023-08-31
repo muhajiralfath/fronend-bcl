@@ -15,7 +15,7 @@ export class BillsComponent {
   displayedColumns: string[] = ['no', 'umkmName', 'debtorName', 'debt', 'interest', 'dueDate', 'isPaid'];
   dataSource!: MatTableDataSource<any>
   length: number = 0
-  pageSize: number = 25
+  pageSize: number = 15
   pageIndex: number = 0
   pageSizeOptions: number[] = [25, 50, 100]
   number: number = 0

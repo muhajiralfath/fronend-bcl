@@ -1,0 +1,35 @@
+<div class="card shadow p-3 mb-5 bg-body-tertiary">
+  <div class="card-header">
+    UMKM Detail
+  </div>
+  <div class="card-body">
+    <table class="table" width="100%">
+      <tbody>
+      <tr>
+        <th scope="row" width="30%">Name</th>
+        <td>{{newUmkmResponse.umkmName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">No SIUP</th>
+        <td>{{newUmkmResponse.noSiup}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Capital</th>
+        <td>{{newUmkmResponse.capital | rupiah}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Bank Account</th>
+        <td>{{newUmkmResponse.bankAccount}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Type</th>
+        <td>{{newUmkmResponse.umkmType}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Address</th>
+        <td>{{newUmkmResponse.address}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -38,7 +38,6 @@ export class UmkmDetailComponent {
           this.form.patchValue({
             debtorId: param["id"]
           })
-
           this.loadUmkm(param["id"]);
         }
       }

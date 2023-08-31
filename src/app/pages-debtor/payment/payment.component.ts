@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {PaymentService} from "../../share/service/payment/payment.service";
 import {PaymentRequest} from "../../share/model/request/payment-request.model";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {BillService} from "../../share/service/bill/bill.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-payment',
@@ -10,11 +11,13 @@ import {BillService} from "../../share/service/bill/bill.service";
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent {
+  isLoading:boolean = false;
 
   constructor(
       private readonly service: PaymentService,
       private readonly billService: BillService,
-      private readonly route: ActivatedRoute
+      private readonly route: ActivatedRoute,
+      private readonly router:Router
   ) {}
 
   ngOnInit(): void{
@@ -46,6 +49,7 @@ export class PaymentComponent {
   }
 
   createPayment() {
+    this.isLoading = true;
     this.service.create(this.paymentRequest).subscribe({
         next: res => {
           const newTab = window.open(res.data.snapUrl, '_blank');
@@ -54,6 +58,15 @@ export class PaymentComponent {
           } else {
             console.error("Failed to open new tab");
           }
+          this.router.navigateByUrl("/debtor/bill");
+        },
+        error: (error) => {
+          this.router.navigateByUrl("/debtor/bill");
+          Swal.fire(
+            'Error',
+            "Payment failed",
+            'error'
+          );
         }
     })
   }

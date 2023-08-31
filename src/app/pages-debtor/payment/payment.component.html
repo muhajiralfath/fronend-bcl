@@ -18,8 +18,14 @@
         </div>
 
         <div class="row">
-          <div class="col mt-3 text-center">
+          <div *ngIf="!isLoading" class="col mt-3 text-center">
             <button class="btn btn-primary" (click)="createPayment()">Confirm</button>
+          </div>
+          <div *ngIf="isLoading" class="col mt-3 text-center">
+            <button class="btn btn-primary" type="button" disabled>
+              <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+              <span role="status"> Loading...</span>
+            </button>
           </div>
         </div>
       </div>
