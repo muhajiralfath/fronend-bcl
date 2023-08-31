@@ -16,15 +16,14 @@ import {UmkmService} from "../../share/service/umkm/umkm.service";
 export class DashboardComponent {
   countDebtor:number = 0;
   countUmkm:number = 0;
-  submissionDataSource!: MatTableDataSource<any>
-  billDataSource!: MatTableDataSource<any>
+  submissionDataSource!: MatTableDataSource<any>;
+  billDataSource!: MatTableDataSource<any>;
   constructor(
     private readonly submissionService: SubmissionService,
     private readonly billService: BillService,
     private readonly debtorService:DebtorService,
     private readonly umkmService:UmkmService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getAllSubmission()
@@ -91,6 +90,6 @@ export class DashboardComponent {
   }
 
   getUnpaidBills(): number {
-    return this.billDataSource.data.filter(row => !row.isPaid).length;
+    return this.billDataSource.data.filter(row => row.isPaid).length;
   }
 }
