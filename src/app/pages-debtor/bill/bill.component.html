@@ -16,12 +16,12 @@
 
             <ng-container matColumnDef="debt">
               <th mat-header-cell *matHeaderCellDef><strong>Debt</strong></th>
-              <td mat-cell *matCellDef="let row" class="text-end"> {{row.debt | rupiah}} </td>
+              <td mat-cell *matCellDef="let row" class="text-center"> {{row.debt | rupiah}} </td>
             </ng-container>
 
             <ng-container matColumnDef="isPaid">
               <th mat-header-cell *matHeaderCellDef><strong>Status</strong></th>
-              <td mat-cell *matCellDef="let row">
+              <td mat-cell *matCellDef="let row" class="text-center">
                 {{row.isPaid ? "Paid":"Unpaid"}}
               </td>
             </ng-container>

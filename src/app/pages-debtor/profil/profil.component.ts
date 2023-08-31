@@ -53,12 +53,15 @@ export class ProfilComponent {
     });
   }
 
+  imageId: any;
+
   ngAfterViewInit() {
     this.userService.getUserByToken().subscribe({
       next: response => {
         if (response.data.profilePicture && response.data.profilePicture.id != null) {
           const imageId = response.data.profilePicture.id;
           this.displayImage(imageId);
+          this.imageId = imageId;
         } else {
           this.displayDefaultImage();
         }
@@ -143,17 +146,18 @@ export class ProfilComponent {
     this.photoService.upload(this.file).subscribe({
       next: res => {
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'success',
           title: 'Success!',
           showConfirmButton: false,
           timer: 1000
         });
+        window.location.reload()
       },
       error: err => {
         console.log(err)
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'warning',
           title: 'Failed!',
           showConfirmButton: false,
@@ -181,7 +185,7 @@ export class ProfilComponent {
   }
 
   download(): void {
-    this.photoService.download('53660ac2-a302-474e-a52c-dc75db4f0629').subscribe({
+    this.photoService.download(this.imageId).subscribe({
       next: response => {
         const blob = response.body;
         const filename = this.getFilenameFromResponseHeaders(response);
@@ -190,19 +194,12 @@ export class ProfilComponent {
         link.href = blobUrl;
         link.download = filename; // Set the appropriate filename
         link.click();
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Success!',
-          showConfirmButton: false,
-          timer: 1000
-        });
       },
       error: err => {
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'warning',
-          title: 'Failed!',
+          title: 'Failed Download!!',
           showConfirmButton: false,
           timer: 1000
         });

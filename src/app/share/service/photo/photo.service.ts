@@ -18,7 +18,7 @@ export class PhotoService {
     throw Error;
   }
 
-  download(imageId: string): Observable<any> {
+  download(imageId: any): Observable<any> {
     return this.http.get(`/angular/api/users/profile-picture/${imageId}`, {
       responseType: 'blob',
       observe: 'response'

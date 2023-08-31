@@ -3,7 +3,13 @@ span {
 }
 
 .profile-picture img {
-  height: 100px;
+  height: 200px;
+  width: auto;
+  border-radius: 24px;
+}
+
+.profile-picture img:hover  {
+  cursor: pointer;
 }
 
 .file-input {

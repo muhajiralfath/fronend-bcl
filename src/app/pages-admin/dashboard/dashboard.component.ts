@@ -90,6 +90,6 @@ export class DashboardComponent {
   }
 
   getUnpaidBills(): number {
-    return this.billDataSource.data.filter(row => row.isPaid).length;
+    return this.billDataSource.data.filter(row => row.isPaid === false).length;
   }
 }

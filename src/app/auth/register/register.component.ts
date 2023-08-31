@@ -3,6 +3,7 @@ import {AuthService} from "../../share/service/auth/auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import Swal from "sweetalert2";
 import {AuthRequest} from "../../share/model/request/auth-request.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import {AuthRequest} from "../../share/model/request/auth-request.model";
 export class RegisterComponent {
   constructor(
     private readonly service:AuthService,
+    private readonly router: Router
   ) {}
   form:FormGroup = new FormGroup({
     email: new FormControl("", Validators.required),
@@ -33,10 +35,11 @@ export class RegisterComponent {
       this.service.registerDebtor(authRequest).subscribe({
         next: (result) => {
           this.form.reset();
-          Swal.fire("Login", "Registration successful", "success");
+          Swal.fire("Registration successful!", "You can login!", "success");
+          this.router.navigateByUrl("/login")
         }, error:(e) => {
           this.form.reset();
-          Swal.fire("Login", e["message"], "error");
+          Swal.fire("Register Failed", "Email already exist, Please use another one!", "error");
         }
       });
     }

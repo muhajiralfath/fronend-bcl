@@ -1,21 +1,25 @@
 <div class="card shadow bg-body-tertiary mb-5">
-  <div class="card-header">
+  <div class="card-header mb-4">
     Profile Detail
   </div>
   <div class="card-body">
-    <div class="profile-picture mb-2">
-      <img class="img-fluid bg-secondary" [src]="profileImage" alt="profile picture">
-    </div>
-    <form class="mb-2" [formGroup]="photoForm" (ngSubmit)="upload()">
-      <div class="file-input">
-        <label for="imageInput" class="custom-file-label">Select Photo</label>
-        <input type="file" id="imageInput" (change)="getFile($event)" formenctype="multipart/form-data" formControlName="image">
+    <div class="d-flex flex-column justify-content-center align-items-center ">
+      <div class="profile-picture mb-2" (click)="download()">
+        <img class="img-fluid bg-secondary" [src]="profileImage" alt="profile picture">
       </div>
-      <button type="submit" class="btn btn-outline-primary btn-sm d-block" [disabled]="photoForm.invalid">Upload</button>
-    </form>
-<!--    <button class="btn btn-primary" type="button" (click)="download()">Download Photo</button>-->
+      <form class="mb-2" [formGroup]="photoForm" (ngSubmit)="upload()">
+        <div class="d-flex gap-3 mt-4" >
+          <div class="file-input">
+            <label for="imageInput" class="custom-file-label">Select Photo</label>
+            <input type="file" id="imageInput" (change)="getFile($event)" formenctype="multipart/form-data" formControlName="image">
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm d-block" [disabled]="photoForm.invalid">Upload</button>
+        </div>
+      </form>
+    </div>
 
-    <form [formGroup]="form" (ngSubmit)="save(form.value)" method="post">
+
+    <form [formGroup]="form" (ngSubmit)="save(form.value)" method="post" class="mt-4">
       <input type="hidden" class="form-control" formControlName="debtorId">
       <div class="row">
         <div class="col-lg-6">
