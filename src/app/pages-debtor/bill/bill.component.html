@@ -51,7 +51,9 @@
                          [pageSize]="pageSize"
                          [pageSizeOptions]="[25, 50, 100]"
                          hidePageSize
-                         (page)="paginatorPageChange($event)">
+                         (page)="paginatorPageChange($event)"
+                         hidePageSize
+          >
           </mat-paginator>
         </div>
       </div>
