@@ -169,7 +169,7 @@ export class ProfilComponent {
 
   profileImage: SafeUrl | undefined;
   displayDefaultImage() {
-    const imageUrl = "https://mdbcdn.b-cdn.net/img/new/avatars/5.webp";
+    const imageUrl = "../../assets/share/default.svg";
     this.profileImage = this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
   displayImage(imageId: string): void {
@@ -179,7 +179,7 @@ export class ProfilComponent {
         this.profileImage = this.sanitizer.bypassSecurityTrustUrl(imageUrl);
       },
       error: err => {
-        this.profileImage = "https://mdbcdn.b-cdn.net/img/new/avatars/5.webp";
+        this.profileImage = "../../assets/share/default.svg";
       }
     });
   }
