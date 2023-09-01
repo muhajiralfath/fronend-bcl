@@ -22,6 +22,13 @@ export class LoginAdminComponent {
     password: new FormControl("", Validators.required)
   });
 
+  ngOnInit(): void {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      this.router.navigateByUrl("/admin");
+    }
+  }
+
   save(data:AuthRequest){
     this.service.login(data).subscribe({
       next:(res) => {

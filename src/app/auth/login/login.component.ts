@@ -21,6 +21,13 @@ export class LoginComponent {
     password: new FormControl("", Validators.required)
   });
 
+  ngOnInit(): void{
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      this.router.navigateByUrl("/debtor");
+    }
+  }
+
   save(data:AuthRequest){
     this.service.login(data).subscribe({
       next:(res) => {
