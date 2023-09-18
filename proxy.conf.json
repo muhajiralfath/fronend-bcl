@@ -1,6 +1,6 @@
 {
   "/angular": {
-    "target": "https://2f94-103-78-25-190.ngrok-free.app",
+    "target": "http://localhost:8080",
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": {
