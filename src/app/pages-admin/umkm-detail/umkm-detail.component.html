@@ -3,6 +3,17 @@
     UMKM Detail
   </div>
   <div class="card-body">
+    <div class="d-flex flex-column align-items-start justify-content-start">
+      <form [formGroup]="documentForm" (ngSubmit)="uploadDocument()">
+        <div>
+          <label for="document">Upload Document</label>
+        </div>
+        <input type="file" id="document" (change)="getDocument($event)" formenctype="multipart/form-data" formControlName="document">
+        <button type="submit" class="btn btn-primary btn-sm d-block mt-2" [disabled]="documentForm.invalid" >Upload</button>
+      </form>
+    </div>
+  </div>
+  <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="save(form.value)" method="post">
       <input type="hidden" class="form-control" formControlName="debtorId">
       <input type="hidden" class="form-control" formControlName="umkmId">

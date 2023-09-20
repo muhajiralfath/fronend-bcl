@@ -8,6 +8,7 @@ import {NewUmkmRequest} from "../../share/model/request/new-umkm-request.model";
 import Swal from "sweetalert2";
 import {UpdateUmkmRequest} from "../../share/model/request/update-umkm-request.model";
 import { Location } from '@angular/common';
+import {DocumentService} from "../../share/service/document/document.service";
 
 @Component({
   selector: 'app-umkm-detail',
@@ -25,11 +26,17 @@ export class UmkmDetailComponent {
     umkmType: new FormControl("", Validators.required),
     bankAccount: new FormControl("", Validators.required),
   });
+
+  documentForm: FormGroup = new FormGroup({
+    document: new FormControl('', [Validators.required])
+  })
+  document: File | undefined
   constructor(
     private readonly umkmService:UmkmService,
     private readonly route:ActivatedRoute,
     private readonly router:Router,
-    private readonly location:Location
+    private readonly location:Location,
+    private readonly documentService: DocumentService
   ) {}
   ngOnInit(){
     this.route.params.subscribe({
@@ -43,6 +50,36 @@ export class UmkmDetailComponent {
       }
     })
   }
+  getDocument(event: any): void{
+    this.document = event.target.files[0] as File
+  }
+
+  uploadDocument(): void{
+    this.documentService.uploadDocument(this.document).subscribe({
+      next  : res => {
+        console.log(res)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Success Upload!',
+          showConfirmButton: false,
+          timer: 1200
+        })
+        window.location.reload()
+      },
+      error: err => {
+        console.log(err)
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Failed Upload!',
+          showConfirmButton: false,
+          timer: 1200
+        })
+      }
+    })
+  }
+
   loadUmkm(debtorId:any){
     this.umkmService.getByDebtorId(debtorId).subscribe({
       next: (umkmResponse:CommonResponse<UmkmResponse>) => {

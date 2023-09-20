@@ -50,7 +50,7 @@ export class SubmissionFormComponent {
     }
     console.log(this.umkmType)
     console.log(newSubmission.loanAmount)
-    if (this.umkmType === "mikro" && (newSubmission.loanAmount < 1000000 || newSubmission.loanAmount > 3000000)) return Swal.fire("Your Umkm type is micro! input amount 1.000.000 - 3.000.000")
+    if (this.umkmType === "mikro" && (newSubmission.loanAmount < 1000000 ||  newSubmission.loanAmount > 3000000)) return Swal.fire("Your Umkm type is micro! input amount 1.000.000 - 3.000.000")
     if (this.umkmType === "kecil" && (newSubmission.loanAmount < 5000000 || newSubmission.loanAmount > 20000000)) return Swal.fire("Your Umkm type is small! input amount 5.000.000 - 20.000.000")
     if (this.umkmType === "menengah" && (newSubmission.loanAmount < 10000000 || newSubmission.loanAmount > 50000000)) return Swal.fire("Your Umkm type is middle! input amount 10.000.000 - 50.000.000")
     else {
