@@ -16,7 +16,7 @@ import {UserService} from "../../share/service/user/user.service";
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
-export class ProfilComponent {
+export class  ProfilComponent {
   constructor(
       private readonly debtorService: DebtorService,
       private readonly photoService: PhotoService,

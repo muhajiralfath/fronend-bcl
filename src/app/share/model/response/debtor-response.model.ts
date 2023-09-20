@@ -10,5 +10,6 @@ export interface DebtorResponse{
   status:string,
   address:string,
   job:string,
-  email:string
+  email:string,
+  imageId:string
 }
