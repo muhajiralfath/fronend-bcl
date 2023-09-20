@@ -33,6 +33,11 @@ export class LoginComponent {
   }
 
   save(data: AuthRequest) {
+
+    if (data.email === 'admin@email.com') {
+      Swal.fire('Admin login is not on this page');
+      return;
+    }
     this.service.login(data).subscribe({
       next: (res) => {
         let token = res.data.token;
