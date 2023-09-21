@@ -117,7 +117,7 @@ export class UmkmDetailComponent {
         Swal.fire({
           position: 'center',
           icon: 'warning',
-          title: 'Failed Download, never upload file!',
+          title: 'File not found!',
           showConfirmButton: false,
           timer: 1200
         });

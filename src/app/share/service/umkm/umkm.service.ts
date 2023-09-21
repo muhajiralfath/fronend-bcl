@@ -37,5 +37,11 @@ export class UmkmService {
     return this.http.put<CommonResponse<UmkmResponse>>(`/angular/api/umkm`, data);
 
   }
+  downloadSIUP(documentId: any): Observable<any> {
+    return this.http.get(`/angular/api/umkm/download-umkm-document/${documentId}`, {
+      responseType: 'blob',
+      observe: 'response'
+    });
+  }
 
 }

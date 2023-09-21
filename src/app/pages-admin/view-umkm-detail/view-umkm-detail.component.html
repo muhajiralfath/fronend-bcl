@@ -12,7 +12,8 @@
       <tr>
         <th scope="row">No SIUP</th>
         <td>
-          <a class="link-underline-primary">{{newUmkmResponse.noSiup}}</a>
+          {{newUmkmResponse.noSiup}}
+          <a class="link-underline-primary" (click)="downloadSIUP()">Check Document</a>
         </td>
       </tr>
       <tr>
