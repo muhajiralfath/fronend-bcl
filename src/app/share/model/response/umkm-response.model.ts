@@ -6,4 +6,5 @@ export interface UmkmResponse{
   capital:number,
   umkmType:string,
   bankAccount:string
+  documentId:string
 }

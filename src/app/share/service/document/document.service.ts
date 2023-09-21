@@ -18,8 +18,8 @@ export class DocumentService {
     throw Error
   }
 
-  downloadDocument(): Observable<any> {
-    return this.http.get('/angular/api/umkm/download-document', {
+  downloadDocument(documentId: string | undefined): Observable<any> {
+    return this.http.get(`/angular/api/umkm/download-umkm-document/${documentId}`, {
       responseType: 'blob',
       observe: 'response'
     })

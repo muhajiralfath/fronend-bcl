@@ -17,7 +17,8 @@ export class ViewUmkmDetailComponent {
     address:"",
     capital:0,
     umkmType:"",
-    bankAccount:""
+    bankAccount:"",
+    documentId: ""
   }
   constructor(
     private readonly umkmService:UmkmService,

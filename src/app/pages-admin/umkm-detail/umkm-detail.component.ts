@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UmkmService} from "../../share/service/umkm/umkm.service";
@@ -7,8 +7,10 @@ import {UmkmResponse} from "../../share/model/response/umkm-response.model";
 import {NewUmkmRequest} from "../../share/model/request/new-umkm-request.model";
 import Swal from "sweetalert2";
 import {UpdateUmkmRequest} from "../../share/model/request/update-umkm-request.model";
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import {DocumentService} from "../../share/service/document/document.service";
+import {HttpResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-umkm-detail',
@@ -16,7 +18,7 @@ import {DocumentService} from "../../share/service/document/document.service";
   styleUrls: ['./umkm-detail.component.css']
 })
 export class UmkmDetailComponent {
-  form:FormGroup = new FormGroup({
+  form: FormGroup = new FormGroup({
     debtorId: new FormControl("", Validators.required),
     umkmId: new FormControl(""),
     umkmName: new FormControl("", Validators.required),
@@ -31,17 +33,21 @@ export class UmkmDetailComponent {
     document: new FormControl('', [Validators.required])
   })
   document: File | undefined
+  documentId: string | undefined
+
   constructor(
-    private readonly umkmService:UmkmService,
-    private readonly route:ActivatedRoute,
-    private readonly router:Router,
-    private readonly location:Location,
+    private readonly umkmService: UmkmService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly location: Location,
     private readonly documentService: DocumentService
-  ) {}
-  ngOnInit(){
+  ) {
+  }
+
+  ngOnInit() {
     this.route.params.subscribe({
       next: (param) => {
-        if(param["id"]){
+        if (param["id"]) {
           this.form.patchValue({
             debtorId: param["id"]
           })
@@ -50,13 +56,14 @@ export class UmkmDetailComponent {
       }
     })
   }
-  getDocument(event: any): void{
+
+  getDocument(event: any): void {
     this.document = event.target.files[0] as File
   }
 
-  uploadDocument(): void{
+  uploadDocument(): void {
     this.documentService.uploadDocument(this.document).subscribe({
-      next  : res => {
+      next: res => {
         console.log(res)
         Swal.fire({
           position: 'center',
@@ -80,11 +87,50 @@ export class UmkmDetailComponent {
     })
   }
 
-  loadUmkm(debtorId:any){
+  getFilenameFromResponseHeaders(response: HttpResponse<Blob>): string {
+    const contentDispositionHeader = response.headers.get('content-disposition');
+    if (contentDispositionHeader) {
+      const filenameRegex = /filename[^;=\n]*=([^;\n]*)/;
+      const matches = filenameRegex.exec(contentDispositionHeader);
+      if (matches && matches.length > 1) {
+        let filename = matches[1].replace(/['"]/g, ''); // Remove quotes
+        filename = filename.replace(/^_/, ''); // Remove leading underscore
+        filename = filename.replace(/_$/, ''); // Remove trailing underscore
+        return filename;
+      }
+    }
+    return 'unknown'; // Default filename if header is not present or doesn't contain filename info
+  }
+
+  downloadDocument(): void {
+    this.documentService.downloadDocument(this.documentId).subscribe({
+      next: res => {
+        const blob = res.body;
+        const fileName: string = this.getFilenameFromResponseHeaders(res)
+        const blobUrl = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href =blobUrl
+        link.download = fileName
+        link.click()
+      },
+      error: err => {
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Failed Download, never upload file!',
+          showConfirmButton: false,
+          timer: 1200
+        });
+      }
+    })
+  }
+
+  loadUmkm(debtorId: any) {
     this.umkmService.getByDebtorId(debtorId).subscribe({
-      next: (umkmResponse:CommonResponse<UmkmResponse>) => {
-        let data:UmkmResponse = umkmResponse.data;
+      next: (umkmResponse: CommonResponse<UmkmResponse>) => {
+        let data: UmkmResponse = umkmResponse.data;
         console.log(data);
+        this.documentId = umkmResponse.data.documentId
         this.inputData(data);
       },
       error: (error: any) => {
@@ -92,8 +138,8 @@ export class UmkmDetailComponent {
         // errMsg = "Page Not Found"
         this.route.params.subscribe({
           next: (param) => {
-            if(param["id"]){
-              let debtorId:string = param["id"];
+            if (param["id"]) {
+              let debtorId: string = param["id"];
               this.router.navigateByUrl(`/debtor/profile/${debtorId}`);
             }
           }
@@ -101,29 +147,30 @@ export class UmkmDetailComponent {
       }
     });
   }
-  save(request:any){
-    if(this.form.get("umkmId")?.value){
+
+  save(request: any) {
+    if (this.form.get("umkmId")?.value) {
       //Update
-      let updateUmkmRequest:UpdateUmkmRequest = {
-        umkmId:request.umkmId,
-        umkmName:request.umkmName,
-        noSiup:request.noSiup,
-        address:request.address,
-        capital:request.capital,
-        umkmType:request.umkmType,
-        bankAccount:request.bankAccount
+      let updateUmkmRequest: UpdateUmkmRequest = {
+        umkmId: request.umkmId,
+        umkmName: request.umkmName,
+        noSiup: request.noSiup,
+        address: request.address,
+        capital: request.capital,
+        umkmType: request.umkmType,
+        bankAccount: request.bankAccount
       }
 
       this.umkmService.update(updateUmkmRequest).subscribe({
-        next: (response:CommonResponse<UmkmResponse>) => {
-          let data:UmkmResponse = response.data;
+        next: (response: CommonResponse<UmkmResponse>) => {
+          let data: UmkmResponse = response.data;
           this.inputData(data);
           Swal.fire(
             "Update UMKM",
             "success",
             "success"
           );
-        },error: (error) => {
+        }, error: (error) => {
           Swal.fire(
             'Update UMKM',
             error.toString(),
@@ -131,27 +178,27 @@ export class UmkmDetailComponent {
           );
         }
       });
-    }else{
+    } else {
       //Create
-      let newUmkmRequest:NewUmkmRequest = {
-        debtorId:request.debtorId,
-        umkmName:request.umkmName,
-        noSiup:request.noSiup,
-        address:request.address,
-        capital:request.capital,
-        umkmType:request.umkmType,
-        bankAccount:request.bankAccount
+      let newUmkmRequest: NewUmkmRequest = {
+        debtorId: request.debtorId,
+        umkmName: request.umkmName,
+        noSiup: request.noSiup,
+        address: request.address,
+        capital: request.capital,
+        umkmType: request.umkmType,
+        bankAccount: request.bankAccount
       }
       this.umkmService.create(newUmkmRequest).subscribe({
-        next: (response:CommonResponse<UmkmResponse>) => {
-          let data:UmkmResponse = response.data;
+        next: (response: CommonResponse<UmkmResponse>) => {
+          let data: UmkmResponse = response.data;
           this.inputData(data);
           Swal.fire(
             "Create UMKM",
             "success",
             "success"
           );
-        },error: (error) => {
+        }, error: (error) => {
           Swal.fire(
             'Create UMKM',
             error.toString(),
@@ -162,7 +209,7 @@ export class UmkmDetailComponent {
     }
   }
 
-  private inputData(data:UmkmResponse){
+  private inputData(data: UmkmResponse) {
     this.form.patchValue({
       umkmId: data.umkmId,
       umkmName: data.umkmName,
