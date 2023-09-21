@@ -39,6 +39,7 @@ export class LoginAdminComponent {
         }
       },
       error: (err) => {
+        this.router.navigateByUrl('/login-admin');
         Swal.fire("Invalid Username or Password!");
       }
     });
