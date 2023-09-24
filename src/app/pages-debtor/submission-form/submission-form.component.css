@@ -4,5 +4,9 @@
   align-items: center;
 }
 
+.text-left {
+  text-align: left !important;
+}
+
 
 

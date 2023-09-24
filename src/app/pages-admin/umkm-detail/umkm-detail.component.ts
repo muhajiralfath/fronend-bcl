@@ -70,7 +70,7 @@ export class UmkmDetailComponent {
           icon: 'success',
           title: 'Success Upload!',
           showConfirmButton: false,
-          timer: 1200
+          timer: 10000
         })
         window.location.reload()
       },
