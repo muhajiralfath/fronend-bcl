@@ -13,7 +13,7 @@ export class DocumentService {
     if (file){
       let formData: FormData = new FormData();
       formData.set("document", file)
-      return this.http.post('/angular/api/umkm/upload-document', formData)
+      return this.http.put('/angular/api/umkm/upload-document', formData)
     }
     throw Error
   }
