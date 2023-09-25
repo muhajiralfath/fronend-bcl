@@ -48,6 +48,7 @@ export class LoginComponent {
       },
       error: (err) => {
         Swal.fire('Invalid Username or Password!');
+        this.router.navigateByUrl('/login');
       },
     });
   }
