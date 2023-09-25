@@ -111,7 +111,7 @@ export class SubmissionFormComponent {
       },
       error: (error) => {
         Swal.fire('Add Umkm First');
-        this.router.navigateByUrl('/debtor/submission-form');
+        this.router.navigateByUrl('/debtor/submission');
       },
     });
   }
